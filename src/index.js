@@ -1,6 +1,6 @@
 import React from 'react'
 import {render} from 'react-dom'
 import {boards} from './fixtures'
-import App from './app'
+import Root from './component/Root'
 
-render(<App/>, document.getElementById('container'))
+render(<Root />, document.getElementById('container'))

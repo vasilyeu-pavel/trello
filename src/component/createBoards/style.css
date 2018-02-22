@@ -1,0 +1,10 @@
+.boards {
+	padding: 20px;
+	border: solid 2px black;
+	width: 20%;
+	border-radius: 5px;
+}
+
+.activeTitleBoards {
+	border-bottom: solid 2px black;
+}

@@ -2,18 +2,19 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import 'bootstrap/dist/css/bootstrap.css'
 import CreateBoards from './createBoards/index'
-import {boards} from '../fixtures'
-
+import BoardsList from './Board/BoardsList'
+import './style.css'
+import {HashRouter as Router, Route, NavLink} from 'react-router-dom'
 
 class App extends Component {
-    static propTypes = {
-    };
-
     render() {
         return (
-                <div className = "alert alert-primary">
+        	<Router>
+                <div className = "box">
                 	<CreateBoards />
-                </div>    
+                	<BoardsList />
+                </div>  
+            </Router>      
         )
     }
 }

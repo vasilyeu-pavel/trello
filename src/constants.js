@@ -1,1 +1,7 @@
 export const CHANGE_STATE_BOARDS = "CHANGE_STATE_BOARDS"
+
+export const GET_BOARDS = "GET_BOARDS"
+
+export const DELETE_BOARD = "DELETE_BOARD"
+
+export const ADD_BOARD = "ADD_BOARD"

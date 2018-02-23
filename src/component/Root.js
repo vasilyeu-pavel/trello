@@ -12,7 +12,4 @@ function Root() {
     )
 }
 
-Root.propTypes = {
-}
-
 export default Root

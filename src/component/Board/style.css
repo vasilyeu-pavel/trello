@@ -1,0 +1,16 @@
+ul li {
+	 list-style-type: none;
+	 display: inline-block;
+	 margin-top: 20px; 
+}
+
+.boardsTitle {
+	display: inline-block;
+}
+
+.boadsExit {
+	float: right;
+	color:  #d44950;;
+    font-size: 1.1em;
+    font-weight: bold;
+}

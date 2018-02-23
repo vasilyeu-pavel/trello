@@ -1,7 +1,11 @@
-import {createStore} from 'redux'
+import {createStore, applyMiddleware} from 'redux'
 import reducer from '../reducer'
+import logger from '../middleware/logger'
+import setIdForBoard from '../middleware/setIdForBoard'
 
-const store = createStore(reducer)
+const enhancer = applyMiddleware(logger, setIdForBoard)
+
+const store = createStore(reducer, {}, enhancer)
 
 //dev only
 window.store = store

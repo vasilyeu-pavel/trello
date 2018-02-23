@@ -7,8 +7,9 @@ import {changeBoardsState} from '../../AC'
 
 class CreateBoards extends Component {
     static propTypes = {
-        //from toggleOpen decorators
+        //from connect
         isOpen: PropTypes.bool,
+        changeBoardsState: PropTypes.func
     };
 
     render() {

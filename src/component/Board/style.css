@@ -14,3 +14,9 @@ ul li {
     font-size: 1.1em;
     font-weight: bold;
 }
+
+.boardsTitle {
+	text-decoration: none;
+	display: inline-block;
+}
+

@@ -1,4 +1,4 @@
-import {CHANGE_STATE_BOARDS, GET_BOARDS, DELETE_BOARD, ADD_BOARD} from '../constants'
+import {CHANGE_STATE_BOARDS, GET_BOARDS, DELETE_BOARD, ADD_BOARD, ADD_TASK_BOARD} from '../constants'
 
 export function changeBoardsState(isOpen) {
     return {

@@ -23,14 +23,14 @@ class ActiveCreateBoards extends Component {
         if (!isOpen) return null
         return (
                 <div>
-                    <h6>Boards name:</h6>
-                    <from>
+                    <h6>Название:</h6>
+                    <from className = "boardsCreatesForm">
                         <input type = "text" 
                         value = {this.state.boardsName} 
                         onChange = {this.handleBoardsNameChange}
                         className = "form-control"
                         />
-                        {alertState ? <h7 className = "alertError">Plz enter boards name</h7> : null}
+                        {alertState ? <h7 className = "alertError">Введите название</h7> : null}
                         <input 
                         type = "submit" 
                         value = "Create"

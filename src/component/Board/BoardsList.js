@@ -4,7 +4,6 @@ import './style.css'
 import {connect} from 'react-redux'
 import {getBoards} from '../../AC'
 import Board from './Board'
-import {NavLink, Route} from 'react-router-dom'
 
 class BoardsList extends Component {
     static propTypes = {

@@ -6,3 +6,7 @@
 .alertError {
 	color:  #d44950;
 }
+
+.boardsCreatesForm {
+	display: inline-block;
+}

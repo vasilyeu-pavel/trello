@@ -16,19 +16,20 @@ class Board extends Component {
 
     render() {
         const { title, id } = this.props.board
-        
+
         return (
+            <Link to = {`/board/${id}`}>
                 <div className = "boards">
-                    <Link to = {`/board/${id}`}>
-                        {title}
-                    </Link>
+                        <h6 className = "boardsTitle">{title}</h6>
                     <span 
                     className = "boadsExit" 
                     onClick = { this.handleDeleteBoard }
                     >x</span> 
-                </div>   
+                </div>
+            </Link>     
         )
     }
+
 
     handleDeleteBoard = (ev) => {
         ev && ev.preventDefault && ev.preventDefault()

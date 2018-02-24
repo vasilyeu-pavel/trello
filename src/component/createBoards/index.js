@@ -17,8 +17,8 @@ class CreateBoards extends Component {
         return (
                 <div className = "boards">
                     <div className = "boardsTitle" onClick = {changeBoardsState}>
-                        {!isOpen ? <h5>Create new boards...</h5> : 
-                            <h5 className = "activeTitleBoards">Create new boards:</h5>}
+                        {!isOpen ? <h5>Создать новую доску...</h5> : 
+                            <h5 className = "activeTitleBoards">Создать новую доску:</h5>}
                     </div>
                     <div className = "boardsBody">
                         <ActiveCreateBoards />

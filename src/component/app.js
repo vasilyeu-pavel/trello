@@ -1,21 +1,45 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import 'bootstrap/dist/css/bootstrap.css'
 import CreateBoards from './createBoards/index'
 import BoardsList from './Board/BoardsList'
+import LabelHome from './LabelHome'
+import TaskBoard from './Board/taskBoard/taskBoard.js'
+import {Route, Link, Switch } from 'react-router-dom'
+
+import 'bootstrap/dist/css/bootstrap.css'
 import './style.css'
-import {HashRouter as Router, Route, NavLink} from 'react-router-dom'
 
 class App extends Component {
     render() {
         return (
-        	<Router>
-                <div className = "box">
-                	<CreateBoards />
-                	<BoardsList />
-                </div>  
-            </Router>      
+            <div>
+            <Link to = "/"><LabelHome /></Link>
+                    <div className = "box">
+                       <Switch>
+                         <Route path="/" render = {this.getBoards} exact = {true}/>
+                         <Route path ="/board/:id" component = {this.getTask} exact = {true}/>
+                      </Switch>
+                    </div>
+            </div>          
         )
+    }
+
+    getBoards = () => {
+        return (
+                <div>
+                    <CreateBoards />
+                    <BoardsList />
+                </div>
+            )
+    }
+
+    getTask = ({ match  }) => {
+     const id = match.params.id
+        return (
+                <div>
+                    <TaskBoard id = {id}/>
+                </div>
+            )
     }
 }
 

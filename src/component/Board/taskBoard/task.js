@@ -11,7 +11,7 @@ class Task extends Component {
 
     render() {
         return (
-            <div className ="card bg-light mb-3" style={{"max-width": 18 + "rem"}}>
+            <div className ="card bg-light mb-3" style={{"maxWidth": 18 + "rem"}}>
               <div className ="card-header">Header</div>
               <div className ="card-body">
                 <h5 className ="card-title">Light card title</h5>

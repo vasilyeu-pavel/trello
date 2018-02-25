@@ -21,11 +21,11 @@ class taskBoard extends Component {
 
         return (
             <div>    
-                <div className="card bg-light mb-3" style={{"max-width": 18 + "rem"}}>
+                <div className="card bg-light mb-3" style={{"maxWidth": 18 + "rem"}}>
 
                   <div className="card-header" 
-                  style = {{"text-align": "center"}}>
-                  {taskBoardElement[0].title}
+                  style = {{"textAlign": "center"}}>
+                  <b>{taskBoardElement[0].title}</b>
                   </div>
 
                 </div>

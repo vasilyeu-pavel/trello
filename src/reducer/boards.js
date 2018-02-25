@@ -7,8 +7,7 @@ const stateBoards = {
 }
 
 export default (state = stateBoards, action) => {
-    const { type, payload, randomId } = action
-    console.log(action);
+    const { type, payload, randomId , date} = action
 
     switch (type) {
         case CHANGE_STATE_BOARDS: return {...state, isOpen: !state.isOpen}
@@ -21,7 +20,7 @@ export default (state = stateBoards, action) => {
 	        }
 
 	    case ADD_BOARD: return {
-	    	boards: state.boards.concat({id: randomId, title: payload.name, task: []}),
+	    	boards: state.boards.concat({id: randomId, title: payload.name, date:  date, task: []}),
 	    	isOpen: state.isOpen,
 	    }
     }

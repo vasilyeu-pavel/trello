@@ -15,16 +15,17 @@ class Board extends Component {
     }
 
     render() {
-        const { title, id } = this.props.board
+        const { title, id , date} = this.props.board
 
         return (
             <Link to = {`/board/${id}`}>
                 <div className = "boards">
-                        <h6 className = "boardsTitle">{title}</h6>
+                        <h5 className = "boardsTitle">{title}</h5>
                     <span 
                     className = "boadsExit" 
                     onClick = { this.handleDeleteBoard }
-                    >x</span> 
+                    >x</span>
+                    <span className = "boardsDate">{date}</span>
                 </div>
             </Link>     
         )
@@ -32,10 +33,10 @@ class Board extends Component {
 
 
     handleDeleteBoard = (ev) => {
-        ev && ev.preventDefault && ev.preventDefault()
+        ev.preventDefault()
         const { board, deleteBoard } = this.props
         deleteBoard(board.id)
-    }
+    }   
 
 }
 

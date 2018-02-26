@@ -10,16 +10,16 @@ export default store => next => action => {
 function setDate () {
 	let date = new Date();
 
-    let dd = date.getDate();
-    if (dd < 10) dd = '0' + dd;
+    let day = date.getDate();
+    if (day < 10) day = '0' + dd;
 
-    let mm = date.getMonth() + 1;
-    if (mm < 10) mm = '0' + mm;
+    let month = date.getMonth() + 1;
+    if (month < 10) month = '0' + month;
 
-    let yy = date.getFullYear() % 100;
-    if (yy < 10) yy = '0' + yy;
+    let year = date.getFullYear() % 100;
+    if (year < 10) year = '0' + year;
 
-    return dd + '.' + mm + '.' + yy;
+    return day + '.' + month + '.' + year;
 }
 
 

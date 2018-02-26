@@ -1,15 +1,19 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { changeAddTaskMenuState, addTask } from '../../../AC'
+import { changeTaskMenuState, addTaskTitle } from '../../../AC'
 import { connect } from 'react-redux'
 import { Link, Route } from 'react-router-dom'
 
 class AddTaskMenu extends Component {
 
     static propTypes = {
+      //from connect
       isOpen: PropTypes.bool,
-      changeAddTaskMenuState: PropTypes.func,
+      changeTaskMenuState: PropTypes.func,
       addTask: PropTypes.func,
+      addTaskTitle: PropTypes.func,
+      //from props
+      idBoards: PropTypes.string,
     }
 
     state = {
@@ -18,7 +22,6 @@ class AddTaskMenu extends Component {
     }
 
     render() {
-      const { changeAddTaskMenuState } = this.props
       const { taskName, errorPlaceHolder } = this.state
 
         return (
@@ -41,7 +44,7 @@ class AddTaskMenu extends Component {
 
   sendValue = (e) => {
     e.preventDefault()
-    const { changeAddTaskMenuState } = this.props
+    const { addTaskTitle, idBoards, changeTaskMenuState } = this.props
     const { taskName } = this.state
 
     if (!taskName || !taskName.length) {
@@ -50,9 +53,11 @@ class AddTaskMenu extends Component {
       })
       return null
     }
+
+    let val = this.state.taskName
     
-    addTask(this.state.taskName) //send value for reducer
-    changeAddTaskMenuState()     //close menu
+    addTaskTitle(val, idBoards)     //send value for reducer
+    changeTaskMenuState()
 
       this.setState({
         errorPlaceHolder: ''
@@ -66,9 +71,8 @@ class AddTaskMenu extends Component {
     })
   }
 
-
 }
 
 export default connect((state) => ({
   isOpen: state.task.isOpen
-}), { changeAddTaskMenuState, addTask })(AddTaskMenu)
+}), { addTaskTitle, changeTaskMenuState })(AddTaskMenu)

@@ -1,12 +1,19 @@
 import {CHANGE_STATE_BOARDS, GET_BOARDS, DELETE_BOARD, ADD_BOARD, ADD_TASK_BOARD,
-	CHANGE_STATE_ADD_TASK_MENU, ADD_TASK
+	CHANGE_STATE_TASK_MENU, ADD_TASK_TITLE, GET_TASK_LIST
 } from '../constants'
 
-export function changeBoardsState(isOpen) {
+export function changeBoardsState() {
     return {
         type: CHANGE_STATE_BOARDS,
     }
 }
+
+export function changeTaskMenuState() {
+    return {
+        type: CHANGE_STATE_TASK_MENU,
+    }
+}
+
 
 export function getBoards () {
 	return {
@@ -29,16 +36,16 @@ export function addBoard ( name ) {
 	}
 }
 
-export function changeAddTaskMenuState(isOpen) {
+export function addTaskTitle ( name, idBoards ) {
     return {
-        type: CHANGE_STATE_ADD_TASK_MENU,
+        type: ADD_TASK_TITLE,
+		payload: { name, idBoards },
+		generateId: true,
     }
 }
 
-export function addTask ( value ) {
+export function getTaskList () {
 	return {
-		type: ADD_TASK,
-		payload: { value },
-		generateId: true,
+		type: GET_TASK_LIST,
 	}
 }

@@ -3,21 +3,24 @@ import PropTypes from 'prop-types'
 import AddTaskMenu from './AddTaskMenu'
 import './style.css'
 import { connect } from 'react-redux'
-import { changeAddTaskMenuState } from '../../../AC'
+import { changeTaskMenuState } from '../../../AC'
 
 class addTaskButton extends Component {
 	static propTypes = {
+		//from connect
 		isOpen: PropTypes.bool,
-		changeAddTaskMenuState: PropTypes.func
+		changeTaskMenuState: PropTypes.func,
+		//from props
+		idBoards: PropTypes.string
     }
 
 	render() {
-		const { isOpen, changeAddTaskMenuState } = this.props
+		const { isOpen, changeTaskMenuState, idBoards } = this.props
 
 		return (
 			<div className = "BoardAddTaskButton">
-				<div onClick = { changeAddTaskMenuState }><h5>Добавить задачу</h5></div>
-				{isOpen ? <AddTaskMenu /> : null}
+				<div onClick = { changeTaskMenuState }><h5>Добавить задачу</h5></div>
+				{isOpen ? <AddTaskMenu idBoards = { idBoards }/> : null}
 			</div>
 			)
 	}
@@ -25,4 +28,4 @@ class addTaskButton extends Component {
 
 export default connect((state) => ({
 	isOpen: state.task.isOpen
-}), { changeAddTaskMenuState })(addTaskButton)
+}), { changeTaskMenuState })(addTaskButton)

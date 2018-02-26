@@ -4,7 +4,7 @@ import AddTaskButton from './addTaskButton'
 import { connect } from 'react-redux'
 import { Link, Route } from 'react-router-dom'
 import { getBoards } from '../../../AC'
-import Task from './task.js'
+import TaskList from './taskList.js'
 import './style.css'
 
 class taskBoard extends Component {
@@ -17,6 +17,7 @@ class taskBoard extends Component {
         const { id, boards } = this.props
 
         if (!boards.length) return null
+
         const taskBoardElement = boards.filter( board => board.id === id )
 
         return (
@@ -31,8 +32,8 @@ class taskBoard extends Component {
                 </div>
                 <div>
                     <ul className = "boardTaskList">
-                        <li><AddTaskButton /></li>
-                        <li><Task /></li>
+                        <li><AddTaskButton idBoards = {id}/></li>
+                        <li><TaskList idBoards = { id } /></li>
                     </ul>
                 </div>  
             </div>    

@@ -1,6 +1,8 @@
 import {CHANGE_STATE_BOARDS, GET_BOARDS, DELETE_BOARD, ADD_BOARD,
  ADD_TASK_TITLE, GET_TASK_LIST } from '../constants'
+
 import { normalizedBoards } from '../fixtures'
+import produce from 'immer' 
 
 const stateBoards = {
 	isOpen: false,
@@ -10,29 +12,66 @@ const stateBoards = {
 export default (state = stateBoards, action) => {
     const { type, payload, randomId, date} = action
 
-    switch (type) {
-        case CHANGE_STATE_BOARDS: return {...state, isOpen: !state.isOpen}
+  return produce(state, draft => {
+    	switch (type) {
+    		case CHANGE_STATE_BOARDS:
+    			return {
+    		 	isOpen: !draft.isOpen,
+    		 	boards: state.boards
+    		 }
 
-        case GET_BOARDS: return {...state}
+    		case GET_BOARDS:
+    			return {
+    				boards: draft.boards,
+    				isOpen: draft.isOpen
+    		  }
+    		  
+    		case DELETE_BOARD:
+    			return {
+    				boards: state.boards.filter(board => board.id !== payload.id),
+    				isOpen: draft.isOpen
+    			}
 
-        case DELETE_BOARD:
-	        return {
-	        	boards: state.boards.filter(board => board.id !== payload.id),
-	        }
+    		case ADD_BOARD: 
+			  	 draft.boards.push({
+			  		id: randomId, 
+			  		title: payload.name, 
+			  		date:  date, 
+			  		task: []
+			  	})
 
-	    case ADD_BOARD: return {
-	    	boards: state.boards.concat({id: randomId, title: payload.name, date:  date, task: []}),
-	    	isOpen: state.isOpen,
-	    }
+			case ADD_TASK_TITLE:
+					draft.boards.forEach( function(element) {
+						if (element.id === payload.idBoards) {
+							element.task.push(randomId)
+						}
+					})
 
-	    case ADD_TASK_TITLE: 	    	
-	    	boards: state.boards.forEach( (board) => {
-				if ( board.id === payload.idBoards ) {
-					board.task.push(randomId)
-				}
-	    	})
-	    	
-	    }
-
-    return state
+    	}
+    })
+return state
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

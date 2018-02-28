@@ -13,6 +13,7 @@ class BoardsList extends Component {
 
     render() {
         const { boards } = this.props
+        console.log(boards);
         if (!boards) return null
 
         const boardElement = boards

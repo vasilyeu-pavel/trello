@@ -12,11 +12,16 @@ class BoardsList extends Component {
     };
 
     render() {
-        const { boards } = this.props
-        console.log(boards);
+        const { boards, select } = this.props
         if (!boards) return null
 
         const boardElement = boards
+        .filter(board => {
+            if (!select) return true
+            if (!select.length) return true
+            return !!select.find(one => one.value === board.id)
+           
+        })
         .map((board) => 
             <li key = {board.id}>
                 <Board 
@@ -36,5 +41,6 @@ class BoardsList extends Component {
 }
 
 export default connect(state => ({
-    boards: state.boards.boards
+    boards: state.boards.boards,
+    select: state.select
 }), { getBoards })(BoardsList)

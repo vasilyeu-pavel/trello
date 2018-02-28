@@ -1,4 +1,5 @@
 .BoardAddTaskButton {
+	margin-top: 20px;
 	padding: 30px;
 	border: 1px solid #ced4da;
 	border-radius: 5px;
@@ -20,4 +21,19 @@
 
  .boardTaskList {
  	display: flex;
+ }
+
+ .commentElement {
+ 	margin: 10px 0;
+    padding: 14px 7px;
+    background: rgb(241,241,241);
+    border-radius: 4.5px;
+    cursor: -webkit-grab;
+    cursor: -moz-grab;
+    cursor: grab;
+    display: flex;
+    opacity: 1;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 6px 6px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+    text-decoration: none;
+    background-color: rgb(202, 255, 222);
  }

@@ -1,5 +1,5 @@
 import {CHANGE_STATE_BOARDS, GET_BOARDS, DELETE_BOARD, ADD_BOARD, ADD_TASK_BOARD,
-	CHANGE_STATE_TASK_MENU, ADD_TASK_TITLE, GET_TASK_LIST
+	CHANGE_STATE_TASK_MENU, ADD_TASK_TITLE, GET_TASK_LIST, SET_SELECT_BOARD, SEND_COMMENT
 } from '../constants'
 
 export function changeBoardsState() {
@@ -47,5 +47,20 @@ export function addTaskTitle ( name, idBoards ) {
 export function getTaskList () {
 	return {
 		type: GET_TASK_LIST,
+	}
+}
+
+export function setSelectBoard ( selected ) {
+	
+	return {
+		type: SET_SELECT_BOARD,
+		payload: { selected }
+	}
+}
+
+export function sendComment (commentName) {
+	return {
+		type: SEND_COMMENT,
+		payload: { commentName }
 	}
 }

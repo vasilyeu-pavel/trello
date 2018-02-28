@@ -1,5 +1,6 @@
 import {CHANGE_STATE_BOARDS, GET_BOARDS, DELETE_BOARD, ADD_BOARD,
- ADD_TASK_TITLE, GET_TASK_LIST } from '../constants'
+ ADD_TASK_TITLE, GET_TASK_LIST, SET_SELECT_BOARD
+  } from '../constants'
 
 import { normalizedBoards } from '../fixtures'
 import produce from 'immer' 
@@ -39,6 +40,8 @@ export default (state = stateBoards, action) => {
 			  		date:  date, 
 			  		task: []
 			  	})
+			case SET_SELECT_BOARD:
+				  	 
 
 			case ADD_TASK_TITLE:
 					draft.boards.forEach( function(element) {

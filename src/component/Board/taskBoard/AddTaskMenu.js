@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { changeTaskMenuState, addTaskTitle } from '../../../AC'
 import { connect } from 'react-redux'
-import { Link, Route } from 'react-router-dom'
 
 class AddTaskMenu extends Component {
 
@@ -29,7 +28,7 @@ class AddTaskMenu extends Component {
           <div className="form-group">
             <input type="text" 
             className="form-control" 
-            id="formGroupExampleInput" 
+            id = "formGroupExampleInput" 
             value = { taskName }
             onInput = { this.toggleTaskName }
             placeholder = { errorPlaceHolder }

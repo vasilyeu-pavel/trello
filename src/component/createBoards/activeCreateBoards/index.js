@@ -33,7 +33,7 @@ class ActiveCreateBoards extends Component {
                         {alertState ? <h7 className = "alertError">Введите название</h7> : null}
                         <input 
                         type = "submit" 
-                        value = "Create"
+                        value = "создать"
                         onClick = {this.sendValue}
                         className = "btn btn-primary"
                         />

@@ -1,5 +1,5 @@
 import {CHANGE_STATE_BOARDS, GET_BOARDS, DELETE_BOARD, ADD_BOARD,
- ADD_TASK_TITLE, GET_TASK_LIST, SET_SELECT_BOARD
+ ADD_TASK_TITLE, GET_TASK_LIST, SET_SELECT_BOARD, DELETE_TASK
   } from '../constants'
 
 import { normalizedBoards } from '../fixtures'
@@ -54,12 +54,6 @@ export default (state = stateBoards, action) => {
     })
 return state
 }
-
-
-
-
-
-
 
 
 

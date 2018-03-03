@@ -19,3 +19,7 @@
 .activeTitleBoards {
 	border-bottom: 1px solid #ced4da;
 }
+
+.boardsTitle {
+	cursor: pointer;
+}

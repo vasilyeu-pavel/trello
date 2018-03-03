@@ -19,7 +19,9 @@ class addTaskButton extends Component {
 
 		return (
 			<div className = "BoardAddTaskButton">
-				<div onClick = { changeTaskMenuState }><h5>Добавить задачу</h5></div>
+				<div onClick = { changeTaskMenuState } className = "taskMenuTitle">
+					<h5>Добавить задачу</h5>
+				</div>
 				{isOpen ? <AddTaskMenu idBoards = { idBoards }/> : null}
 			</div>
 			)

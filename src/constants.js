@@ -16,4 +16,6 @@ export const GET_TASK_LIST = "GET_TASK_LIST"
 
 export const SET_SELECT_BOARD = "SET_SELECT_BOARD"
 
-export const SEND_COMMENT = "SEND_COMMENT"
+export const ADD_COMMENT = "ADD_COMMENT"
+
+export const HANDLE_DROP = "HANDLE_DROP"

@@ -1,18 +1,56 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-
 import { connect } from 'react-redux'
+import {  } from '../../../AC'
+import { DragSource } from 'react-dnd';
+
+export const ItemTypes = {
+  COMMENT: 'comment'
+};
+
+const commentSource = {
+  beginDrag({ idComment, idTask, comments }) {
+    const commentElement = comments.filter(comment => comment.id === idComment)
+    const commentText = commentElement[0].text
+    return {
+        idComment, idTask, commentText
+    };
+  }
+};
+
+function collect(connect, monitor) {
+  return {
+    connectDragSource: connect.dragSource(),
+    connectDragPreview: connect.dragPreview(),
+    isDragging: monitor.isDragging()
+  }
+}
+
+@DragSource(ItemTypes.COMMENT, commentSource, collect)  
 
 class Comment extends Component {
     static propTypes = {
+        connectDragSource: PropTypes.func,
+        connectDragPreview: PropTypes.func.isRequired,
+        isDragging: PropTypes.bool,
+        idComment: PropTypes.string,
+        idTask: PropTypes.string,
+        comments: PropTypes.array
+    } 
 
-    }
+    render() { 
+        const { comments, idComment, connectDragSource, isDragging, idTask } = this.props
 
-    render() {
-
-        return (
-            <div>
-              123
+        const commentElement = comments.filter(comment => comment.id === idComment)
+        const text = commentElement[0].text
+        return connectDragSource(
+            <div style={{
+                    opacity: isDragging ? 0.5 : 1,
+                    fontSize: 15,
+                    fontWeight: 'bold',
+                    cursor: 'pointer'
+                  }}>
+              {text}
             </div>
         )
     }
@@ -20,5 +58,5 @@ class Comment extends Component {
 }
 
 export default connect(state => ({
-  tasks: state.task.task
-}), { sendComment })(Comment)
+  comments: state.comments
+}), { })(Comment)

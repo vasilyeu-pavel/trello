@@ -1,5 +1,6 @@
 import {CHANGE_STATE_BOARDS, GET_BOARDS, DELETE_BOARD, ADD_BOARD, ADD_TASK_BOARD,
-	CHANGE_STATE_TASK_MENU, ADD_TASK_TITLE, GET_TASK_LIST, SET_SELECT_BOARD, SEND_COMMENT
+	CHANGE_STATE_TASK_MENU, ADD_TASK_TITLE, GET_TASK_LIST, SET_SELECT_BOARD, ADD_COMMENT,
+	 HANDLE_DROP
 } from '../constants'
 
 export function changeBoardsState() {
@@ -58,9 +59,19 @@ export function setSelectBoard ( selected ) {
 	}
 }
 
-export function sendComment (commentName) {
+export function sendComment (commentText, idTask) {
 	return {
-		type: SEND_COMMENT,
-		payload: { commentName }
+		type: ADD_COMMENT,
+		payload: { commentText, idTask },
+		generateId: true,
+
 	}
+}
+
+export function handleDrop ( commentText, commentId, taskId, newTaskId ) {
+	return dispatch => {
+		dispatch({
+		type: HANDLE_DROP,
+		payload: { commentText, commentId, taskId, newTaskId  } });
+    }
 }

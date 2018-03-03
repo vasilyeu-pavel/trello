@@ -15,15 +15,20 @@
  	-moz-transform: scale(1.1);
  	-o-transform: scale(1.1);
 }
- .boardTaskList li {
+
+.taskMenuTitle {
+    cursor: pointer;
+}
+
+.boardTaskList li {
  	margin-right: 10px;
  }
 
- .boardTaskList {
+.boardTaskList {
  	display: flex;
  }
 
- .commentElement {
+.commentElement {
  	margin: 10px 0;
     padding: 14px 7px;
     background: rgb(241,241,241);
@@ -31,8 +36,8 @@
     cursor: -webkit-grab;
     cursor: -moz-grab;
     cursor: grab;
-    display: flex;
-    opacity: 1;
+    widows: 100%;
+    display: block;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 6px 6px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
     text-decoration: none;
     background-color: rgb(202, 255, 222);

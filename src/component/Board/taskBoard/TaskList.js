@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { getBoards } from '../../../AC'
 import { connect } from 'react-redux'
 import Task from './Task.js'
-
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 

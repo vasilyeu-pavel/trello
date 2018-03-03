@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import {  } from '../../../AC'
 import { DragSource } from 'react-dnd';
 
 export const ItemTypes = {
@@ -10,10 +9,8 @@ export const ItemTypes = {
 
 const commentSource = {
   beginDrag({ idComment, idTask, comments }) {
-    const commentElement = comments.filter(comment => comment.id === idComment)
-    const commentText = commentElement[0].text
     return {
-        idComment, idTask, commentText
+        idComment, idTask
     };
   }
 };

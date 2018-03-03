@@ -8,9 +8,9 @@ import { DropTarget } from 'react-dnd';
 
 const dropSource = {
     drop(props, monitor) {
-        const comment = monitor.getItem(); // this item is being dragged
-        props.handleDrop(comment.commentText, comment.idComment, comment.idTask, props.id);
-        // const droppedItem = props.onDrop(monitor.getItem());
+        const comment = monitor.getItem()
+        console.log(comment);
+        props.handleDrop(comment.idComment, comment.idTask, props.id);
 
     },
  
@@ -18,10 +18,7 @@ const dropSource = {
 
 function collect(connect, monitor) {
     return {
-        // Call this function inside render()
-        // to let React DnD handle the drag events:
         connectDropTarget: connect.dropTarget(),
-        // You can ask the monitor about the current drag state:
         isOver: monitor.isOver(),
         isOverCurrent: monitor.isOver({ shallow: true }),
         canDrop: monitor.canDrop(),
@@ -72,6 +69,7 @@ class Task extends Component {
                 <ul style = {{'display': 'inline'}}>
 
                   {taskSelected[0].comments.map(id => 
+
                     <li className = "commentElement" key = {id}>
                     <Comment idComment = {id} idTask = {taskSelected[0].id}/>
                     </li>
@@ -106,9 +104,6 @@ class Task extends Component {
       commentText: ev.target.value
     })
   }
-
-
-
 }
 
 export default connect(state => ({

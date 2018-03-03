@@ -1,5 +1,5 @@
-import { CHANGE_STATE_TASK_MENU, ADD_TASK_TITLE, ADD_COMMENT } from '../constants'
-import { normalizedTask, HANDLE_DROP } from '../fixtures'
+import { CHANGE_STATE_TASK_MENU, ADD_TASK_TITLE, ADD_COMMENT, HANDLE_DROP } from '../constants'
+import { normalizedTask } from '../fixtures'
 import produce from 'immer' 
 
 const stateTask = {
@@ -37,13 +37,26 @@ export default (state = stateTask, action) => {
                 })
                 break;
 
-            case HANDLE_DROP: 
-                 console.log("не попадает запрос")
-
+            case HANDLE_DROP: {
                 
-                       
-        }
+                const { idComment, taskId, newTaskId } = action.payload
+                draft.task.forEach( function(element) {
+                    if (element.id === newTaskId) element.comments.push(idComment)
+                });
+
+                const objNew = arrayToObject(draft.task)
+                const removeComment = objNew[taskId].comments.findIndex(id => id !== idComment)
+                const oldTask = objNew[taskId].comments.splice(removeComment, 1)
+
+                }   
+        }   
     })
 
     return state
 }
+
+const arrayToObject = (array) =>
+   array.reduce((obj, item) => {
+     obj[item.id] = item
+     return obj
+   }, {})

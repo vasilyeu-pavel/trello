@@ -49,7 +49,6 @@ export default (state = stateBoards, action) => {
 							element.task.push(randomId)
 						}
 					})
-
     	}
     })
 return state

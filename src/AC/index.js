@@ -68,10 +68,10 @@ export function sendComment (commentText, idTask) {
 	}
 }
 
-export function handleDrop ( commentText, commentId, taskId, newTaskId ) {
+export function handleDrop ( idComment, taskId, newTaskId ) {
 	return dispatch => {
 		dispatch({
 		type: HANDLE_DROP,
-		payload: { commentText, commentId, taskId, newTaskId  } });
+		payload: { idComment, taskId, newTaskId } });
     }
 }

@@ -41,7 +41,7 @@ class Comment extends Component {
         const commentElement = comments.filter(comment => comment.id === idComment)
         const text = commentElement[0].text
         return connectDragSource(
-            <div style={{
+            <div onClick = {this.test} style={{
                     opacity: isDragging ? 0.5 : 1,
                     fontSize: 15,
                     fontWeight: 'bold',
@@ -50,6 +50,11 @@ class Comment extends Component {
               {text}
             </div>
         )
+    }
+
+    test = (ev) => {
+      ev.preventDefault()
+      console.log(this);
     }
 
 }

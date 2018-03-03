@@ -10,7 +10,7 @@ export const normalizedBoards = [
 export const normalizedTask = [
 	{	
 		id: "qwerqwer",
-		title: "home",
+		title: "первая задача",
 		comments: ["1fdf",]
 	},
 ]
@@ -18,6 +18,6 @@ export const normalizedTask = [
 export const normalizedComments = [
 	{	
 		id: "1fdf",
-		text: "2",
+		text: "first comment",
 	},
 ]

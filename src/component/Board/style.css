@@ -1,0 +1,32 @@
+.boardsDate {
+	text-decoration: none;
+	display: block;
+	font-weight: 400;
+	color: gray;
+	font-size: 0.9em;
+}
+
+ul li {
+	 list-style-type: none;
+	 display: inline-block;
+	 margin-top: 20px; 
+}
+
+.boardsTitle {
+	display: inline-block;
+	text-decoration: none;
+	font-weight: 400;
+	color: black;
+}
+
+.boadsExit {
+	float: right;
+	color:  #d44950;;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.addTaskMenu button {
+	margin-top: 10px;
+}

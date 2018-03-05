@@ -1,0 +1,88 @@
+.BoardAddTaskButton {
+    margin-top: 20px;
+    padding: 30px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    background: #0a2c74;
+    color: white;
+    -moz-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+}
+
+.BoardAddTaskButton:hover {
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -o-transform: scale(1.1);
+}
+
+.taskMenuTitle {
+    cursor: pointer;
+}
+
+.boardTaskList li {
+    margin-right: 10px;
+ }
+
+.boardTaskList {
+    display: flex;
+ }
+
+ .comment_container {
+    padding: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    margin-bottom: 10px;
+    border-radius: 3px;
+    cursor: -webkit-grab;
+    cursor: -moz-grab;
+    cursor: grab;
+    widows: 100%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 3px, rgba(0, 0, 0, 0.23) 0px 3px 3px;
+    text-decoration: none;
+    background-color: #fff;
+ }
+
+ .comment_title {
+    padding-left: 6px;
+    padding-bottom: 3px;
+    font-size: 18px;
+    color: #696969;
+    border-bottom: 1.5px solid rgba(0, 0, 0, 0.250);
+    font: 17px Helvetica Neue,Arial,Helvetica,sans-serif;
+ }
+
+.comment_body {
+    padding: 5px;
+    font: 14px Helvetica Neue,Arial,Helvetica,sans-serif;
+
+} 
+
+.comment_body_avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.250);
+    float: left;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.comment_footer {
+    clear: left;
+    border-top: 1.5px solid rgba(0, 0, 0, 0.250);
+    padding: 6px;
+    font: 14px Helvetica Neue,Arial,Helvetica,sans-serif;
+}
+
+.comment_footer_del {
+    float: right;
+    margin-right: 5px;
+}
+
+.comment_footer_like {
+    margin-left: 5px;
+}
+
+.comment_body_text {
+    margin-top: 5px;
+}

@@ -1,4 +1,4 @@
-import { ADD_COMMENT } from '../constants'
+import { ADD_COMMENT, DELETE_COMMENT } from '../constants'
 import { normalizedComments, HANDLE_DROP } from '../fixtures'
 import produce from 'immer' 
 
@@ -14,6 +14,10 @@ export default (state = normalizedComments, action) => {
                     date: date
                 })
                 break;
+
+            case DELETE_COMMENT:
+            return state.filter(comment => comment.id !== payload.idComment)
+  
         }
 
     })

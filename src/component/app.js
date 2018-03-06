@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import CreateBoards from './createBoards/index'
 import BoardsList from './Board/BoardsList'
 import NavBar from './navBar/navBar'
 import TaskBoard from './Board/taskBoard/taskBoard.js'
@@ -27,7 +26,6 @@ class App extends Component {
     getBoards = () => {
         return (
                 <div>
-                    <CreateBoards />
                     <BoardsList />
                 </div>
             )

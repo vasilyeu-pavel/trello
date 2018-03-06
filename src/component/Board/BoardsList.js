@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import CreateBoards from '../createBoards/index'
 import './style.css'
 import {connect} from 'react-redux'
 import {getBoards} from '../../AC'
@@ -31,8 +32,9 @@ class BoardsList extends Component {
             </li>)
         return (
 
-                <ul>
+                <ul style = {{"display": "inline-flex"}}>
                     {boardElement}
+                    <li><CreateBoards /></li>
                 </ul> 
  
         )

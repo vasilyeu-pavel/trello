@@ -19,3 +19,5 @@ export const SET_SELECT_BOARD = "SET_SELECT_BOARD"
 export const ADD_COMMENT = "ADD_COMMENT"
 
 export const HANDLE_DROP = "HANDLE_DROP"
+
+export const DELETE_COMMENT = "DELETE_COMMENT"

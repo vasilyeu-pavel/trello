@@ -1,4 +1,4 @@
-import { CHANGE_STATE_TASK_MENU, ADD_TASK_TITLE, ADD_COMMENT, HANDLE_DROP } from '../constants'
+import { CHANGE_STATE_TASK_MENU, ADD_TASK_TITLE, ADD_COMMENT, HANDLE_DROP, DELETE_COMMENT } from '../constants'
 import { normalizedTask } from '../fixtures'
 import produce from 'immer' 
 
@@ -45,8 +45,13 @@ export default (state = stateTask, action) => {
  
                 const removeComment = objNew[taskId].comments.findIndex(id => id === idComment)
                 const oldTask = objNew[taskId].comments.splice(removeComment, 1)
+                break;
 
-                 
+            case DELETE_COMMENT:
+                const { idTask } = payload
+                const newObj = arrayToObject(draft.task)
+                const deleteComment = newObj[idTask].comments.findIndex(id => id === payload.idComment)
+                const oldObj = newObj[idTask].comments.splice(deleteComment, 1)    
         }   
     })
 

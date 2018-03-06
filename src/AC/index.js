@@ -1,6 +1,6 @@
 import {CHANGE_STATE_BOARDS, GET_BOARDS, DELETE_BOARD, ADD_BOARD, ADD_TASK_BOARD,
 	CHANGE_STATE_TASK_MENU, ADD_TASK_TITLE, GET_TASK_LIST, SET_SELECT_BOARD, ADD_COMMENT,
-	 HANDLE_DROP
+	 HANDLE_DROP, DELETE_COMMENT
 } from '../constants'
 
 export function changeBoardsState() {
@@ -75,3 +75,12 @@ export function handleDrop ( idComment, taskId, newTaskId ) {
 		payload: { idComment, taskId, newTaskId } });
     }
 }
+
+export function deleteComment ( idComment, idTask ) {
+	return dispatch => {
+		dispatch({
+		type: DELETE_COMMENT,
+		payload: { idComment, idTask } });
+    }
+}
+

@@ -24,20 +24,14 @@ class AddTaskMenu extends Component {
       const { taskName, errorPlaceHolder } = this.state
 
         return (
-        <div className = "addTaskMenu">
-          <div className="form-group">
-            <input type="text" 
-            className="form-control" 
-            id = "formGroupExampleInput" 
-            value = { taskName }
-            onInput = { this.toggleTaskName }
-            placeholder = { errorPlaceHolder }
-            />
-            <button type="button" className="btn btn-light"
-            onClick = { this.sendValue }
-            >Создать</button>
-          </div>
-         </div> 
+          <form onSubmit = { this.sendValue }>
+            <input className="form-control" 
+            type="text" 
+            onInput = { this.toggleTaskName } 
+            id = "formGroupExampleInput"  
+            placeholder={ errorPlaceHolder }/>
+          </form>
+
         )
     }
 

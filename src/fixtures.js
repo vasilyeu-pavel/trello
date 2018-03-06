@@ -9,7 +9,7 @@ export const normalizedBoards = [
 		id: "1519629884801",
 		title: "Работа",
 		date: "11.02.18",
-		task: [""],
+		task: [],
 	}	
 ]
 

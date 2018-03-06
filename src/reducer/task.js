@@ -3,7 +3,7 @@ import { normalizedTask } from '../fixtures'
 import produce from 'immer' 
 
 const stateTask = {
-	isOpen: true,
+	isOpen: false,
 	task: normalizedTask,
 }
 

@@ -22,20 +22,20 @@ class taskBoard extends Component {
 
         return (
             <div>    
-                <div className="card bg-light mb-3" style={{"maxWidth": 18 + "rem"}}>
+                <div className="taskNavBar" style={{"maxWidth": 18 + "rem","display":'flex'}}>
 
-                  <div className="card-header" 
-                  style = {{"textAlign": "center"}}>
-                  <b>{taskBoardElement[0].title}</b>
-                  </div>
+                      <div className="card-header">
+                      <b>{taskBoardElement[0].title}</b>
+                      </div>    
+                 <AddTaskButton idBoards = {id}/>
 
                 </div>
                 <div>
                     <ul className = "boardTaskList">
-                        <li><AddTaskButton idBoards = {id}/></li>
                         <li><TaskList idBoards = { id } /></li>
                     </ul>
-                </div>  
+                </div> 
+
             </div>    
         )
     }

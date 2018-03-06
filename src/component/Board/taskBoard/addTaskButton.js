@@ -18,10 +18,13 @@ class addTaskButton extends Component {
 		const { isOpen, changeTaskMenuState, idBoards } = this.props
 
 		return (
-			<div className = "BoardAddTaskButton">
-				<div onClick = { changeTaskMenuState } className = "taskMenuTitle">
-					<h5>Добавить задачу</h5>
-				</div>
+			<div style = {{ 
+				"display": "-webkit-box",
+				"padding": "6px"
+
+		}}>
+				<button type="button" className="btn btn-secondary" 
+				onClick = { changeTaskMenuState }><b>+</b></button>
 				{isOpen ? <AddTaskMenu idBoards = { idBoards }/> : null}
 			</div>
 			)

@@ -8,7 +8,6 @@ class Filters extends Component {
         return (
 				<div>
 					<FiltersSelect />
-
 				</div>    
         )
     }

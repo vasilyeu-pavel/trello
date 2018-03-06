@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import './style.css'
 import { connect } from 'react-redux'
 import { deleteBoard } from '../../AC'
-import { Link, Route } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 class Board extends Component {
     static propTypes = {

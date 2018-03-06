@@ -4,6 +4,7 @@ import Select from 'react-select';
 import { connect } from 'react-redux'
 import { setSelectBoard } from '../../AC'
 import 'react-select/dist/react-select.css'
+import { withRouter } from 'react-router-dom'
 
 
 class FiltersSelect extends Component {
@@ -12,7 +13,18 @@ class FiltersSelect extends Component {
     selectedOption: '',
   }
 
-  handleChange = (selectedOption) => this.props.setSelectBoard(selectedOption);
+  handleChange = (selectedOption) => {
+    this.props.setSelectBoard(selectedOption)
+    console.log(selectedOption);
+    if (selectedOption.length === 1) {
+        this.props.history.push(`/board/${selectedOption[0].value}`)
+    }else if(selectedOption.length > 1) {
+        this.props.history.push(`/`)
+    }else {
+        this.props.history.push(`/`)
+    }
+
+}
   
 
     render() {
@@ -24,13 +36,16 @@ class FiltersSelect extends Component {
             value: board.id
         }))
 
-        return <Select
+        return( 
+            <Select
             style = {{"width": 300 + "px"}}
             options={options}
             value={select}
             multi={true}
             onChange={this.handleChange}
+            placeholder = "доски"
         />
+        )
     }
 
 }
@@ -38,4 +53,4 @@ class FiltersSelect extends Component {
 export default connect(state => ({
     boards: state.boards.boards,
     select: state.select
-}), { setSelectBoard })(FiltersSelect)
+}), { setSelectBoard })(withRouter(FiltersSelect))

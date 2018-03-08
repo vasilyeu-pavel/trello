@@ -26,14 +26,14 @@ class taskBoard extends Component {
                 <div className="taskNavBar" style={{"maxWidth": 18 + "rem","display":'flex'}}>
 
                       <div className="card-header">
-                      <b>{taskBoardElement[0].title}</b>
+                      {taskBoardElement[0].title}
                       </div>    
                  <AddTaskButton idBoards = {id}/>
 
                 </div>
                 <div>
                     <ul className = "boardTaskList">
-                        <li><TaskList idBoards = { id } /></li>
+                        <li><TaskList idBoards = { id } match = {this.props.match}/></li>
                     </ul>
                 </div> 
 

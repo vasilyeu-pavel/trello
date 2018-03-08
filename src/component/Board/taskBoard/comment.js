@@ -4,6 +4,12 @@ import { connect } from 'react-redux'
 import { DragSource } from 'react-dnd';
 import ReactDOM from 'react-dom'
 import { deleteComment } from '../../../AC'
+import Modal from '../../modal/modal'
+
+import { Link, BrowserRouter } from 'react-router-dom';
+import { ModalRoute, ModalContainer } from 'react-router-modal';
+import 'react-router-modal/css/react-router-modal.css';
+
 
 export const ItemTypes = {
   COMMENT: 'comment'
@@ -43,7 +49,7 @@ class Comment extends Component {
 
 
     render() {
-        const { comments, idComment, connectDragSource, isDragging, idTask } = this.props
+        const { comments, idComment, connectDragSource, isDragging, idTask, match } = this.props
         const {commentStatus} = this.state
 
         const commentElement = comments.filter(comment => comment.id === idComment)[0]
@@ -56,26 +62,43 @@ class Comment extends Component {
                     fontWeight: 'bolds',
                     cursor: 'pointer',
                     "height": '100%'
-                  }}> 
+                  }}>
+                <BrowserRouter> 
                  <div> 
                     <div className = "comment_title">{commentElement.date}</div>
-                     <div className = "comment_body" onClick = {this.test }>
-                      <img className = "comment_body_avatar" src = {commentElement.img}/>
-                      <span className = "comment_body_name"><b>{commentElement.name}</b></span>
-                      <p className = "comment_body_text">{commentElement.text}</p>
-                    </div>
+
+                     <Link to={`${match.url}/comment/${commentElement.id}`}>
+                       <div className = "comment_body" onClick = {this.test }>
+                        <img className = "comment_body_avatar" src = {commentElement.img}/>
+                        <span className = "comment_body_name"><b>{commentElement.name}</b></span>
+                        <p className = "comment_body_text">{commentElement.text}</p>
+                      </div>
+                    </Link>
+
                     <div className = "comment_footer">
                       <img className = "comment_footer_like" src ="./src/assets/img/gal.png" 
                       onClick = {this.handleCommentStatus}/>
                       <img className = "comment_footer_del" src ="./src/assets/img/del.png" 
                       onClick = {this.deleteCommentary.bind(this, commentElement.id, idTask)}/>
-                      
-                    
-
                     </div>
+
+                      <ModalRoute component = { this.getComment }  path = {`${match.url}/comment/:id`}  
+                      parentPath={`${match.url}`}
+                      />
+                      <ModalContainer />
                   </div>
+              </BrowserRouter>
             </div> 
         )
+    }
+
+    getComment = ({ match  }) => {
+     const id = match.params.id
+        return (
+                <div >
+                    <Modal id = {id} />
+                </div>
+            )
     }
 
     deleteCommentary(idComment, idTask) {

@@ -15,7 +15,6 @@ class FiltersSelect extends Component {
 
   handleChange = (selectedOption) => {
     this.props.setSelectBoard(selectedOption)
-    console.log(selectedOption);
     if (selectedOption.length === 1) {
         this.props.history.push(`/board/${selectedOption[0].value}`)
     }else if(selectedOption.length > 1) {

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { getBoards } from '../../../AC'
 import { connect } from 'react-redux'
-import Task from './Task.js'
+import Task from './task.js'
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd-html5-backend';
 
@@ -22,7 +22,7 @@ class TaskList extends Component {
         return (
             <div>
               <ul>
-                { taskList[0].task.map(id => <li key = {id}><Task id = {id} idBoard = {taskList[0].id}/></li>) }
+                { taskList[0].task.map(id => <li key = {id}><Task match = {this.props.match} id = {id} idBoard = {taskList[0].id}/></li>) }
               </ul>
             </div>
         )

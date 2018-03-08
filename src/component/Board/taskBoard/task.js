@@ -68,7 +68,7 @@ class Task extends Component {
                 <div >
                   {taskSelected[0].comments.map(id => 
                     <div key = {id}>
-                      <Comment idComment = {id} idTask = {taskSelected[0].id}/>
+                      <Comment idComment = {id} idTask = {taskSelected[0].id} match = {this.props.match}/>
                     </div>
                     )}
 

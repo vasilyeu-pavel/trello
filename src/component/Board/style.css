@@ -30,3 +30,9 @@ ul li {
 .addTaskMenu button {
 	margin-top: 10px;
 }
+
+.taskNavBar .card-header {
+    background-color: #6c757d;
+    color: white;
+    font-weight: 600;
+}

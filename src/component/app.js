@@ -6,6 +6,8 @@ import TaskBoard from './Board/taskBoard/taskBoard.js'
 import {Route, Link, Switch } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.css'
 import './style.css'
+import { ModalRoute, ModalContainer } from 'react-router-modal';
+
 
 class App extends Component {
 
@@ -19,7 +21,7 @@ class App extends Component {
                        <Switch>
                          <Route path="/" render = {this.getBoards} exact = {true}/>
                          <Route path ="/board/:id" component = {this.getTask} exact = {true}/>                    
-                         </Switch>
+                       </Switch>
                     </div>
             </div>          
         )
@@ -37,7 +39,7 @@ class App extends Component {
      const id = match.params.id
         return (
                 <div >
-                    <TaskBoard id = {id}/>
+                    <TaskBoard id = {id} match = {match}/>
                 </div>
             )
     }

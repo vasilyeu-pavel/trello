@@ -49,7 +49,8 @@ class ActiveCreateBoards extends Component {
         const { alertState } = this.state
         if (this.state.boardsName.length !== 0) {
             addBoard(this.state.boardsName) //send board name for reducer
-            changeBoardsState()             //close activeCreateBoards menu
+            changeBoardsState()  
+                       //close activeCreateBoards menu
         }
         else {
             this.setState({

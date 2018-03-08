@@ -38,7 +38,10 @@ class FiltersSelect extends Component {
 
         return( 
             <Select
-            style = {{"width": 300 + "px"}}
+            style = {{
+            "width": 300 + "px",
+            "padding": "2px"
+            }}
             options={options}
             value={select}
             multi={true}

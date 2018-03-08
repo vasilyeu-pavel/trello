@@ -53,24 +53,28 @@ class Comment extends Component {
             <div key = {commentElement.id} className = {this.handleClassComment()} style={{
                     opacity: isDragging ? 0.5 : 1,
                     fontSize: 15,
-                    fontWeight: 'bold',
+                    fontWeight: 'bolds',
                     cursor: 'pointer',
                     "height": '100%'
-                  }}>
-                  <div className = "comment_title">{commentElement.date}</div>
-                  <div className = "comment_body">
-                    <img className = "comment_body_avatar" src = {commentElement.img}/>
-                    <span className = "comment_body_name"><b>{commentElement.name}</b></span>
-                    <p className = "comment_body_text">{commentElement.text}</p>
-                  </div>
-                  <div className = "comment_footer">
-                    <img className = "comment_footer_like" src ="./src/assets/img/gal.png" 
-                    onClick = {this.handleCommentStatus}/>
-                    <img className = "comment_footer_del" src ="./src/assets/img/del.png" 
-                    onClick = {this.deleteCommentary.bind(this, commentElement.id, idTask)}/>
-                  </div>
+                  }}> 
+                 <div> 
+                    <div className = "comment_title">{commentElement.date}</div>
+                     <div className = "comment_body" onClick = {this.test }>
+                      <img className = "comment_body_avatar" src = {commentElement.img}/>
+                      <span className = "comment_body_name"><b>{commentElement.name}</b></span>
+                      <p className = "comment_body_text">{commentElement.text}</p>
+                    </div>
+                    <div className = "comment_footer">
+                      <img className = "comment_footer_like" src ="./src/assets/img/gal.png" 
+                      onClick = {this.handleCommentStatus}/>
+                      <img className = "comment_footer_del" src ="./src/assets/img/del.png" 
+                      onClick = {this.deleteCommentary.bind(this, commentElement.id, idTask)}/>
+                      
+                    
 
-            </div>
+                    </div>
+                  </div>
+            </div> 
         )
     }
 
@@ -88,7 +92,7 @@ class Comment extends Component {
     handleClassComment() {
       const { commentStatus } = this.state
       return commentStatus ? "comment_container" : "comment_container_complited" 
-    }    
+    }
 
 }
 

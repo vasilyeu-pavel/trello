@@ -2,7 +2,7 @@
 	text-decoration: none;
 	display: block;
 	font-weight: 400;
-	color: gray;
+	color: white;
 	font-size: 0.9em;
 }
 
@@ -16,7 +16,7 @@ ul li {
 	display: inline-block;
 	text-decoration: none;
 	font-weight: 400;
-	color: black;
+	color: white;
 }
 
 .boadsExit {

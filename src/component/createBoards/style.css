@@ -16,10 +16,6 @@
  	-o-transform: scale(1.1);
 }
 
-.activeTitleBoards {
-	border-bottom: 1px solid #ced4da;
-}
-
 .boardsTitle {
 	cursor: pointer;
 }

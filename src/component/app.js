@@ -4,20 +4,22 @@ import BoardsList from './Board/BoardsList'
 import NavBar from './navBar/navBar'
 import TaskBoard from './Board/taskBoard/taskBoard.js'
 import {Route, Link, Switch } from 'react-router-dom'
-
 import 'bootstrap/dist/css/bootstrap.css'
 import './style.css'
 
 class App extends Component {
+
     render() {
+     const { location } = this.props;
+
         return (
             <div>   
                 <NavBar />
                     <div className = "box">
                        <Switch>
                          <Route path="/" render = {this.getBoards} exact = {true}/>
-                         <Route path ="/board/:id" component = {this.getTask} exact = {true}/>
-                      </Switch>
+                         <Route path ="/board/:id" component = {this.getTask} exact = {true}/>                    
+                         </Switch>
                     </div>
             </div>          
         )

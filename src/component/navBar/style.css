@@ -1,0 +1,14 @@
+.navbar {
+	background: #026aa7
+}
+
+.navbar-label{
+	color: #f3f3f3;
+}
+
+.navbar-brand {
+	padding: 0 8px;
+	border-radius: 5px;
+	background: hsla(0,0%,100%,.3)
+
+}

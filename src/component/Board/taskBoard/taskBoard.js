@@ -7,6 +7,7 @@ import { getBoards } from '../../../AC'
 import TaskList from './taskList.js'
 import './style.css'
 
+
 class taskBoard extends Component {
     static propTypes = {
         id: PropTypes.string.isRequired,
@@ -39,7 +40,6 @@ class taskBoard extends Component {
             </div>    
         )
     }
-
 }
 
 export default connect((state => ({

@@ -51,7 +51,6 @@ class Comment extends Component {
         const { comments, idComment, connectDragSource, isDragging, idTask, match } = this.props;
 
         const commentElement = comments.filter(comment => comment.id === idComment)[0];
-        console.log(commentElement);
 
         return connectDragSource(
             <div key = {commentElement.id} className = {this.handleClassComment()} style={{
@@ -63,7 +62,9 @@ class Comment extends Component {
             }}>
 
                 <div>
-                    <div className = "comment_title">{commentElement.date}</div>
+                    <div className = "comment_title">{commentElement.date}
+                        {this.getCommentImportant(commentElement)}
+                    </div>
 
                     <Link to={`${match.url}/comment/${commentElement.id}`}>
                         <div className = "comment_body" onClick = {this.test}>
@@ -88,6 +89,34 @@ class Comment extends Component {
 
             </div>
         );
+    }
+
+    getCommentImportant (comment) {
+        const value = +comment.important
+        if (!value) return null
+        if (value === 1) {
+            return (
+                   <div className = "comment_important">
+                        <div className = "comment_important_first"></div>
+                   </div>
+                )
+        }
+        else if (value === 2)  {
+             return (
+                   <div className = "comment_important">
+                    <div className = "comment_important_first"></div>
+                    <div className = "comment_important_second"></div>
+                  </div>
+                )
+        }else {
+            return (
+                  <div className = "comment_important">
+                    <div className = "comment_important_first"></div>
+                    <div className = "comment_important_second"></div>
+                    <div className = "comment_important_third"></div>
+                  </div>
+                )
+        }   
     }
 
     getComment = ({ match }) => {

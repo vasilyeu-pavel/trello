@@ -1,6 +1,6 @@
 import { CHANGE_STATE_BOARDS, GET_BOARDS, DELETE_BOARD, ADD_BOARD,
     CHANGE_STATE_TASK_MENU, ADD_TASK_TITLE, GET_TASK_LIST, SET_SELECT_BOARD, ADD_COMMENT,
-	 HANDLE_DROP, DELETE_COMMENT
+	 HANDLE_DROP, DELETE_COMMENT, CHANGE_IMPORTANT_VALUE, CHANGE_TEXT_COMMENT,
 } from "../constants";
 
 export function changeBoardsState () {
@@ -81,5 +81,19 @@ export function deleteComment (idComment, idTask) {
             type: DELETE_COMMENT,
             payload: { idComment, idTask } });
     };
+}
+
+export function sendChangeImportant (importantValue, idComment) {
+    return {
+        type: CHANGE_IMPORTANT_VALUE,
+        payload: { importantValue, idComment }
+    }
+}
+
+export function sendChangeTextComment (text, idComment) {
+    return {
+        type: CHANGE_TEXT_COMMENT,
+        payload: { text, idComment }
+    }
 }
 

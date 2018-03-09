@@ -38,20 +38,24 @@ export const normalizedComments = [
         name: "Павел",
         text: "Сходить в магазин",
         img: "./src/assets/img/pavel.jpg",
-        date: "26.02.18"
+        date: "26.02.18",
+        important: "1"        
     },
     {
         id: "1234",
         name: "Дмитрий",
         text: "Снять квартиру",
         img: "./src/assets/img/hand.png",
-        date: "21.02.18"
+        date: "21.02.18",
+        important: "2"
+
     },
     {
         id: "12455",
         name: "Гарри",
         text: "Записать матчей",
         img: "./src/assets/img/beets.png",
-        date: "22.02.18"
+        date: "22.02.18",
+        important: "3"
     }
 ];

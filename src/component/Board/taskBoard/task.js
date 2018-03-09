@@ -97,7 +97,7 @@ class Task extends Component {
   toggleCommentName = (ev) => {
       let value = ev.target.value;
       this.setState({
-          commentText: ev.target.value
+          commentText: value
       });
   }
 }

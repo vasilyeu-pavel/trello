@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
 function LabelHome () {
-	return (
-		<div className = "navbar-brand">
+    return (
+        <div className = "navbar-brand">
 			 <span className= "navbar-label">Главная</span>
-		</div>	
-		)
+        </div>
+    );
 }
 
-export default LabelHome
+export default LabelHome;

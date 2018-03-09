@@ -1,16 +1,16 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import FiltersSelect from './Select'
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import FiltersSelect from "./Select";
 
 
 class Filters extends Component {
-    render() {
+    render () {
         return (
-				<div>
-					<FiltersSelect />
-				</div>    
-        )
+            <div>
+                <FiltersSelect />
+            </div>
+        );
     }
 }
 
-export default Filters
+export default Filters;

@@ -1,19 +1,19 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import App from './App'
-import store from '../store'
-import {Provider} from 'react-redux'
-import {BrowserRouter as Router} from 'react-router-dom'
+import React from "react";
+import PropTypes from "prop-types";
+import App from "./App";
+import store from "../store";
+import { Provider } from "react-redux";
+import { BrowserRouter as Router } from "react-router-dom";
 
 
-function Root() {
+function Root () {
     return (
         <Provider store = {store}>
 	       		<Router>
 		            <App />
 	            </Router>
         </Provider>
-    )
+    );
 }
 
-export default Root
+export default Root;

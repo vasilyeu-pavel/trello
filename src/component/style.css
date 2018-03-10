@@ -1,8 +1,9 @@
-.box {
-	display: flex;
-	padding: 2%;
+main {
+	margin-top: 100px;
 }
 
 body {
-	background: #6495ED
+	background: #808080
 }
+
+

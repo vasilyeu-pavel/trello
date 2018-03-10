@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './style.css';
 import { connect } from 'react-redux';
 import { deleteBoard } from '../../AC';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 class Board extends Component {
     static propTypes = {
@@ -18,7 +18,9 @@ class Board extends Component {
         const { title, id, date } = this.props.board;
 
         return (
-            <Link to = {`/board/${id}`}>
+            <NavLink to = {`/board/${id}`} style = {{
+                "textDecoration": "none",
+            }}>
                 <div className = "boards">
                     <h5 className = "boardsTitle">{title}</h5>
                     <img
@@ -28,7 +30,7 @@ class Board extends Component {
                     />
                     <span className = "boardsDate">{date}</span>
                 </div>
-            </Link>
+            </NavLink>
         );
     }
 

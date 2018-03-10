@@ -50,7 +50,7 @@ class Task extends Component {
         const taskSelected = tasks.filter(task => task.id === id);
 
         return connectDropTarget(
-            <div className ="card bg-light mb-3" style={{ maxWidth: 18 + "rem" }}>
+            <div>
                 <div className ="card-header" style = {{ textAlign: "center" }}>
                     <b>{ taskSelected[0].title }</b>
                 </div>
@@ -64,11 +64,11 @@ class Task extends Component {
                             placeholder = "введите комментарий"
                         />
                     </form>
-                    <div >
+                    <div>
                         {taskSelected[0].comments.map(id =>
                             (<div key = {id}>
                                 <Comment idComment = {id} idTask = {taskSelected[0].id} match = {this.props.match}/>
-                            </div>)
+                    </div>)
                         )}
 
                     </div>

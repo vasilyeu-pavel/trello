@@ -22,8 +22,8 @@ class taskBoard extends Component {
         const taskBoardElement = boards.filter(board => board.id === id);
 
         return (
-            <div>
-                <div className="taskNavBar" style={{ maxWidth: 18 + "rem", display: 'flex' }}>
+            <div className="container">
+                <div className="taskNavBar">
 
                     <div className="card-header">
                         {taskBoardElement[0].title}
@@ -32,9 +32,9 @@ class taskBoard extends Component {
 
                 </div>
                 <div>
-                    <ul className = "boardTaskList">
-                        <li><TaskList idBoards = {id} match = {this.props.match}/></li>
-                    </ul>
+                    <div className="container">
+                        <div><TaskList idBoards = {id} match = {this.props.match}/></div>
+                    </div>
                 </div>
 
             </div>

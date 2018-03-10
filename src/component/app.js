@@ -16,12 +16,12 @@ class App extends Component {
         return (
             <div>
                 <NavBar />
-                <div className = "box">
+                <main role="main" className="container">
                     <Switch>
                         <Route path="/" render = {this.getBoards} exact/>
                         <Route path ="/board/:id" component = {this.getTask}/>
                     </Switch>
-                </div>
+                </main>
                 <ModalContainer />
             </div>
         );

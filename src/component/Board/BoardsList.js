@@ -23,18 +23,18 @@ class BoardsList extends Component {
                 return !!select.find(one => one.value === board.id);
             })
             .map((board) =>
-                (<li key = {board.id}>
+                (<div className="col-md-3" key = {board.id}>
                     <Board
                         board = {board}
                         id = {board.id}
                     />
-                </li>));
+                </div>));
         return (
 
-            <ul style = {{ display: "inline-flex" }}>
+            <div className="row">
                 {boardElement}
-                <li><CreateBoards /></li>
-            </ul>
+                <div className="col-md-3"><CreateBoards /></div>
+            </div>
 
         );
     }

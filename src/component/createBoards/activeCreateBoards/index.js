@@ -28,7 +28,7 @@ class ActiveCreateBoards extends Component {
                 <from className = "boardsCreatesForm">
                     <input type = "text"
                         value = {this.state.boardsName}
-                        onInput = {this.handleBoardsNameChange}
+                        onChange = {this.handleBoardsNameChange}
                         className = "form-control"
                     />
                     {alertState ? <h7 className = "alertError">Введите название</h7> : null}
@@ -36,7 +36,7 @@ class ActiveCreateBoards extends Component {
                         type = "submit"
                         value = "создать"
                         onClick = {this.sendValue}
-                        className = "btn btn-primary"
+                        className = "btn btn-dark"
                     />
                 </from>
 

@@ -20,8 +20,11 @@ class Modal extends Component {
         return (
             <div className = "basic__modal-content">
                 <div className = "title">
+                     <button type="button" className="close" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                     </button>
                      <span className = "comment_body_name"><b>{comment.name}</b></span>
-                     <p>{comment.text}</p>
+                     <p>{comment.text}</p> 
                 </div>
 
                 <div className = "body">

@@ -21,9 +21,13 @@ class TaskList extends Component {
 
         return (
             <div>
-                <ul>
-                    { taskList[0].task.map(id => <li key = {id}><Task match = {this.props.match} id = {id} idBoard = {taskList[0].id}/></li>) }
-                </ul>
+                <div className = "row">
+                    { taskList[0].task.map(id => 
+                        <div className = "card text-center" style = {{"height": "100%", "marginRight": "15px"}} key = {id}>
+                        <Task match = {this.props.match} id = {id} idBoard = {taskList[0].id}/>
+                        </div>
+                        )}
+                </div>
             </div>
         );
     }

@@ -27,12 +27,18 @@ class AddTaskMenu extends Component {
                 <input className="form-control"
                     type="text"
                     onInput = {this.toggleTaskName}
+                    onBlur = {this.handleOpen.bind(this, this.props.changeTaskMenuState)}
                     id = "formGroupExampleInput"
                     placeholder={errorPlaceHolder}/>
             </form>
 
         );
     }
+    
+ handleOpen = function(func) {
+    func()
+  }
+
 
   sendValue = (e) => {
       e.preventDefault();

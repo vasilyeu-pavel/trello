@@ -10,114 +10,14 @@
     display: flex;
  }
 
- .comment_container {
-    padding: 5px;
-    border: 1px solid rgba(0, 0, 0, 0.125);
-    margin-bottom: 10px;
-    border-radius: 3px;
-    cursor: -webkit-grab;
-    cursor: -moz-grab;
-    cursor: grab;
-    widows: 100%;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 3px, rgba(0, 0, 0, 0.23) 0px 3px 3px;
-    text-decoration: none;
-    background-color: #fff;
- }
-
- .comment_title {
-    padding-left: 6px;
-    padding-bottom: 3px;
-    font-size: 18px;
-    color: #696969;
-    border-bottom: 1.5px solid rgba(0, 0, 0, 0.250);
-    font: 17px Helvetica Neue,Arial,Helvetica,sans-serif;
- }
-
-.comment_body {
-    padding: 5px;
-    font: 14px Helvetica Neue,Arial,Helvetica,sans-serif;
-
-} 
-
-.comment_body_avatar {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background: rgba(0, 0, 0, 0.250);
-    float: left;
-    margin-right: 5px;
-    margin-bottom: 5px;
-}
-
-.comment_footer {
-    clear: left;
-    border-top: 1.5px solid rgba(0, 0, 0, 0.250);
-    padding: 6px;
-    font: 14px Helvetica Neue,Arial,Helvetica,sans-serif;
-}
-
-.comment_footer_del {
-    float: right;
-    margin-right: 5px;
-}
-
-.comment_footer_like {
-    margin-left: 5px;
-}
-
-.comment_body_text {
-    margin-top: 5px;
-}
-
-.taskNavBar .card-header {
-    display: inline-table;
-}
-
-.taskNavBar button{
-    width: 45px;
-    margin-left: 10px
-}
-
-.comment_container_complited {
-    padding: 5px;
-    border: 1px solid rgba(0, 0, 0, 0.125);
-    margin-bottom: 10px;
-    border-radius: 3px;
-    cursor: -webkit-grab;
-    cursor: -moz-grab;
-    cursor: grab;
-    widows: 100%;
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 3px, rgba(0, 0, 0, 0.23) 0px 3px 3px;
-    text-decoration: line-through;
-    background-color: rgba(0, 0, 0, 0.125);;
-}
-
-.comment_important {
-    width: 100%;
+.taskNavBar {
+    margin-bottom: 15px;
     display: flex;
-    padding: 2px;
+}
+.card-footer-like {
+    float: left;
 }
 
-.comment_important_first {
-    width: 30px;
-    height: 10px;
-    background: green;
-    margin-right: 3px;
-    border-radius: 5px;
-}
-
-.comment_important_second {
-    width: 30px;
-    height: 10px;
-    background: blue;
-    margin-right: 3px;
-    border-radius: 5px;
-}
-
-.comment_important_third {
-    width: 30px;
-    height: 10px;
-    background: red;
-    margin-right: 3px;
-    border-radius: 5px;    
+.card-header, .card-body {
+    text-align: left;
 }

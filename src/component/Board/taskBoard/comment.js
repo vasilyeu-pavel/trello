@@ -5,7 +5,7 @@ import { DragSource } from 'react-dnd';
 import ReactDOM from 'react-dom';
 import { deleteComment } from '../../../AC';
 import Modal from '../../modal/modal';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { ModalRoute } from 'react-router-modal';
 import 'react-router-modal/css/react-router-modal.css';
 
@@ -58,28 +58,30 @@ class Comment extends Component {
                 fontSize: 15,
                 fontWeight: 'bolds',
                 cursor: 'pointer',
-                height: '100%'
+                height: '100%',
+                maxWidth: "18rem"
             }}>
-
-                <div>
-                    <div className = "comment_title">{commentElement.date}
+                    <div className = "card-header">{commentElement.date}
                         {this.getCommentImportant(commentElement)}
                     </div>
 
-                    <Link to={`${match.url}/comment/${commentElement.id}`}>
-                        <div className = "comment_body" onClick = {this.test}>
-                            <img className = "comment_body_avatar" src = {commentElement.img}/>
-                            <span className = "comment_body_name"><b>{commentElement.name}</b></span>
-                            <p className = "comment_body_text">{commentElement.text}</p>
+                    <NavLink to={`${match.url}/comment/${commentElement.id}`}   
+                    style={{
+                    textDecoration: 'none',
+                    color: 'white'
+                   }}>
+                        <div className = "card-body" onClick = {this.test}>
+                            <h5 className = "card-title"><b>{commentElement.name}</b></h5>
+                            <p className = "card-text">{commentElement.text}</p>
                         </div>
-                    </Link>
+                    </NavLink>
 
-                    <div className = "comment_footer">
-                        <img className = "comment_footer_like" src ="./src/assets/img/gal.png"
+                    <div className = "card-footer">
+                        <img className = "card-footer-like" src ="./src/assets/img/gal.png"
                             onClick = {this.handleCommentStatus}/>
-                        <img className = "comment_footer_del" src ="./src/assets/img/del.png"
-                            onClick = {this.deleteCommentary.bind(this, commentElement.id, idTask)}/>
-                    </div>
+                        <button type="button" className="close" aria-label="Close" onClick = {this.deleteCommentary.bind(this, commentElement.id, idTask)}>
+                          <span aria-hidden="true">&times;</span>
+                        </button>        
 
                     <ModalRoute component = {this.getComment} path = {`${match.url}/comment/:id`}
                         parentPath={`${match.url}`}
@@ -141,7 +143,7 @@ class Comment extends Component {
 
     handleClassComment () {
         const { commentStatus } = this.state;
-        return commentStatus ? "comment_container" : "comment_container_complited";
+        return commentStatus ? "card text-white bg-secondary mb-3" : "card text-white bg-dark mb-3";
     }
 }
 

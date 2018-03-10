@@ -16,7 +16,7 @@ class AddTaskMenu extends Component {
 
     state = {
         taskName: '',
-        errorPlaceHolder: ''
+        errorPlaceHolder: 'Создать новый список'
     }
 
     render () {
@@ -58,7 +58,7 @@ class AddTaskMenu extends Component {
       changeTaskMenuState();
 
       this.setState({
-          errorPlaceHolder: ''
+          errorPlaceHolder: 'Создать новый список'
       });
   }
 

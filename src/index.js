@@ -2,4 +2,4 @@ import React from "react";
 import { render } from "react-dom";
 import Root from "./component/Root";
 
-render(<Root />, document.querySelector("body"));
+render(<Root />, document.querySelector("#container"));

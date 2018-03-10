@@ -23,11 +23,9 @@ class Board extends Component {
             }}>
                 <div className = "boards">
                     <h5 className = "boardsTitle">{title}</h5>
-                    <img
-                        src ="./src/assets/img/del.png"
-                        className = "boadsExit"
-                        onClick = {this.handleDeleteBoard}
-                    />
+                    <button type="button" className="close" aria-label="Close" onClick = {this.handleDeleteBoard}>
+                          <span aria-hidden="true" style = {{"color": "#FF0000"}}>&times;</span>
+                    </button> 
                     <span className = "boardsDate">{date}</span>
                 </div>
             </NavLink>

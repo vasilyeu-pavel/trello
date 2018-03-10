@@ -8,6 +8,8 @@ import Modal from '../../modal/modal';
 import { NavLink } from 'react-router-dom';
 import { ModalRoute } from 'react-router-modal';
 import 'react-router-modal/css/react-router-modal.css';
+import AlignCenter from 'react-feather/dist/icons/align-center'
+import Check from 'react-feather/dist/icons/check'
 
 
 export const ItemTypes = {
@@ -21,6 +23,12 @@ const commentSource = {
         };
     }
 };
+
+const size = {
+    "width": "20px",
+    "height": "6px",
+    "marginRight": "5px",
+}
 
 function collect (connect, monitor) {
     return {
@@ -61,8 +69,8 @@ class Comment extends Component {
                 height: '100%',
                 maxWidth: "18rem"
             }}>
-                    <div className = "card-header">{commentElement.date}
-                        {this.getCommentImportant(commentElement)}
+                    <div className = "card-header">
+                        {commentElement.date}
                     </div>
 
                     <NavLink to={`${match.url}/comment/${commentElement.id}`}   
@@ -71,16 +79,18 @@ class Comment extends Component {
                     color: 'white'
                    }}>
                         <div className = "card-body" onClick = {this.test}>
-                            <h5 className = "card-title"><b>{commentElement.name}</b></h5>
+                            {this.getCommentImportant(commentElement)}
+
                             <p className = "card-text">{commentElement.text}</p>
                         </div>
+                            {commentElement.description ? <span className = "description"><AlignCenter /></span> : null}
                     </NavLink>
 
                     <div className = "card-footer">
-                        <img className = "card-footer-like" src ="./src/assets/img/gal.png"
-                            onClick = {this.handleCommentStatus}/>
+                        <span className = "card-footer-like" 
+                            onClick = {this.handleCommentStatus}><Check color="#9ACD32"/></span>
                         <button type="button" className="close" aria-label="Close" onClick = {this.deleteCommentary.bind(this, commentElement.id, idTask)}>
-                          <span aria-hidden="true">&times;</span>
+                          <span aria-hidden="true" style = {{"color": "#FF4500"}}>&times;</span>
                         </button>        
 
                     <ModalRoute component = {this.getComment} path = {`${match.url}/comment/:id`}
@@ -99,23 +109,23 @@ class Comment extends Component {
         if (value === 1) {
             return (
                    <div className = "comment_important">
-                        <div className = "comment_important_first"></div>
+                        <div className = "important-first" style = {size}></div>
                    </div>
                 )
         }
         else if (value === 2)  {
              return (
                    <div className = "comment_important">
-                    <div className = "comment_important_first"></div>
-                    <div className = "comment_important_second"></div>
+                    <div className = "important-first" style = {size}></div>
+                    <div className = "important-second" style = {size}></div>
                   </div>
                 )
         }else {
             return (
                   <div className = "comment_important">
-                    <div className = "comment_important_first"></div>
-                    <div className = "comment_important_second"></div>
-                    <div className = "comment_important_third"></div>
+                    <div className = "important-first" style = {size}></div>
+                    <div className = "important-second" style = {size}></div>
+                    <div className = "important-third" style = {size}></div>
                   </div>
                 )
         }   

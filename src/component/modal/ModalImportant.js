@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import './style.css';
 import { sendChangeImportant } from '../../AC'
 import 'react-router-modal/css/react-router-modal.css';
+import Tag from 'react-feather/dist/icons/tag'
 
 const radioLabelSize = {
     "width": "40px",
@@ -20,19 +21,22 @@ class ModalImportant extends Component {
         const { id } = this.props;
         return (
             <div className="form-group" onChange = {this.toggleRadio}>
-                <label htmlFor="exampleFormControlTextarea1" style = {{ width: "100%" }}>Важность</label>
-                <div className="form-check form-check-inline" >
-                    <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1"/>
-                    <div className = "comment_important_first" style = {radioLabelSize}></div>
-                </div>
-                <div className="form-check form-check-inline">
-                    <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2"/>
-                    <div className = "comment_important_second" style = {radioLabelSize}></div>
-                </div>
-                <div className="form-check form-check-inline">
-                    <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="3"/>
-                    <div className = "comment_important_third" style = {radioLabelSize}></div>
-                </div>
+                <span className = "modal-icon"><Tag /></span>
+                 <h6>Важность</h6>
+                
+                    <div className="form-check form-check-inline" >
+                        <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1"/>
+                        <div className = "important-first" style = {radioLabelSize}></div>
+                    </div>
+                    <div className="form-check form-check-inline">
+                        <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2"/>
+                        <div className = "important-second" style = {radioLabelSize}></div>
+                    </div>
+                    <div className="form-check form-check-inline">
+                        <input className="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="3"/>
+                        <div className = "important-third" style = {radioLabelSize}></div>
+                    </div>
+                
             </div>
         );
     }

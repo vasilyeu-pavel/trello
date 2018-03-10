@@ -5,6 +5,8 @@ import ModalTextForm from './modalTextForm';
 import ModalImportant from './ModalImportant';
 import './style.css';
 import 'react-router-modal/css/react-router-modal.css';
+import AlignCenter from 'react-feather/dist/icons/align-center'
+
 
 
 class Modal extends Component {
@@ -18,27 +20,24 @@ class Modal extends Component {
         const comment = comments.filter(element => element.id === id)[0]
 
         return (
-            <div className = "basic__modal-content">
-                <div className = "title">
-                     <button type="button" className="close" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                     </button>
-                     <span className = "comment_body_name"><b>{comment.name}</b></span>
-                     <p>{comment.text}</p> 
-                </div>
-
-                <div className = "body">
-
-                    <div className = "content">
-                        <ModalTextForm id = {comment.id}/>
-                        <ModalImportant id = {comment.id}/>
+             <div className = "modal-content">
+                    <div className = "modal-header">
+                         <span className = "modal-icon"><AlignCenter /></span>
+                         <h6 className = "modal-title"><span>{comment.text}</span></h6>
+                         <button type="button" className="close" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                         </button>
                     </div>
 
-                    <div className = "menuBar" />
+                <div className = "modal-body">
 
-                </div>
+                        <ModalTextForm id = {comment.id}/>
+                        <ModalImportant id = {comment.id}/>
+
 
             </div>
+            </div>
+
         );
     }
 }

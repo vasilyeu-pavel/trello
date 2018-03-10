@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { sendChangeTextComment } from '../../AC'
 import './style.css';
 import 'react-router-modal/css/react-router-modal.css';
+import Edit from 'react-feather/dist/icons/edit-3'
 
 
 class ModalTextForm extends Component {
@@ -23,7 +24,8 @@ class ModalTextForm extends Component {
 
         return (
             <div className="form-group">
-                <label htmlFor="exampleFormControlTextarea1">Описание</label>
+                <span className = "modal-icon"><Edit /></span>
+                <h6>Описание</h6>
                 <textarea
                     className="form-control"
                     id="exampleFormControlTextarea1"
@@ -34,7 +36,7 @@ class ModalTextForm extends Component {
                     onFocus = {this.toggleOpen}
                 />
                 {isOpen ? 
-                    <button type="button" className="btn btn-primary" onClick = {this.sendValue} >Сохранить</button> 
+                    <button type="button" className="btn btn-primary" onClick = {this.sendValue} style = {{"float": "right"}}>Сохранить</button> 
                     : null}
             </div> 
         );

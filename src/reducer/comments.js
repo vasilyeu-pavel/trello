@@ -28,7 +28,7 @@ export default (state = normalizedComments, action) => {
             case CHANGE_TEXT_COMMENT:
                 draft.forEach( function(element) {
                    if (element.id === payload.idComment)
-                    element.text = payload.text
+                    element.description = payload.text
                 })
                 break;    
         }

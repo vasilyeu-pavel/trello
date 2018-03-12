@@ -53,7 +53,7 @@ export const normalizedComments = [
     {
         id: "12455",
         name: "Гарри",
-        text: "Записать матчей",
+        text: "Записать матч",
         date: "22.02.18",
         important: "3",
         description: ""

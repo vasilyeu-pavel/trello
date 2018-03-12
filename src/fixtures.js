@@ -39,7 +39,7 @@ export const normalizedComments = [
         text: "Сходить в магазин",
         date: "26.02.18",
         important: "1",
-        description: "",        
+        description: ""
     },
     {
         id: "1234",
@@ -47,7 +47,7 @@ export const normalizedComments = [
         text: "Снять квартиру",
         date: "21.02.18",
         important: "2",
-        description: "",
+        description: ""
 
     },
     {
@@ -56,6 +56,6 @@ export const normalizedComments = [
         text: "Записать матчей",
         date: "22.02.18",
         important: "3",
-        description: "",
+        description: ""
     }
 ];

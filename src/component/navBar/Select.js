@@ -8,6 +8,12 @@ import { withRouter } from 'react-router-dom';
 
 
 class FiltersSelect extends Component {
+  static propTypes = {
+      setSelectBoard: PropTypes.func,
+      boards: PropTypes.array,
+      select: PropTypes.array
+  }
+
   state = {
       selectedOption: ''
   }

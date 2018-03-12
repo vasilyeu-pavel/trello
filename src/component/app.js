@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import BoardsList from './Board/BoardsList';
 import NavBar from './navBar/navBar';
 import TaskBoard from './Board/taskBoard/taskBoard.js';
-import { Route, Link, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import './style.css';
 import { ModalContainer } from 'react-router-modal';
@@ -11,8 +10,6 @@ import { ModalContainer } from 'react-router-modal';
 
 class App extends Component {
     render () {
-        const { location } = this.props;
-
         return (
             <div>
                 <NavBar />

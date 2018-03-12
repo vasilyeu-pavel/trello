@@ -34,8 +34,10 @@ const ItemTypes = {
 class Task extends Component {
     static propTypes = {
         id: PropTypes.string,
-        task: PropTypes.array,
-        sendComment: PropTypes.func
+        tasks: PropTypes.array,
+        sendComment: PropTypes.func,
+        comments: PropTypes.array,
+        connectDropTarget: PropTypes.func
 
     }
 
@@ -44,7 +46,7 @@ class Task extends Component {
     }
 
     render () {
-        const { tasks, id, comments, connectDropTarget } = this.props;
+        const { tasks, id, connectDropTarget } = this.props;
         const { commentText } = this.state;
 
         const taskSelected = tasks.filter(task => task.id === id);
@@ -68,7 +70,7 @@ class Task extends Component {
                         {taskSelected[0].comments.map(id =>
                             (<div key = {id}>
                                 <Comment idComment = {id} idTask = {taskSelected[0].id} match = {this.props.match}/>
-                    </div>)
+                            </div>)
                         )}
 
                     </div>

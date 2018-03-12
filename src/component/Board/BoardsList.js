@@ -9,7 +9,8 @@ import Board from './Board';
 class BoardsList extends Component {
     static propTypes = {
         //from connect
-        boards: PropTypes.array
+        boards: PropTypes.array,
+        select: PropTypes.array
     };
 
     render () {

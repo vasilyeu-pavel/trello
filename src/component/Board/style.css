@@ -12,6 +12,9 @@
 	font-weight: 400;
 	color: white;
 }
+.boards {
+	background: #6c757d;
+}
 
 .boadsExit {
 	float: right;

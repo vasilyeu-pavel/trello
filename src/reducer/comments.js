@@ -19,18 +19,16 @@ export default (state = normalizedComments, action) => {
                 break;
 
             case CHANGE_IMPORTANT_VALUE:
-                draft.forEach( function(element) {
-                   if (element.id === payload.idComment)
-                    element.important = payload.importantValue
-                })
+                draft.forEach(function (element) {
+                    if (element.id === payload.idComment) {element.important = payload.importantValue;}
+                });
                 break;
 
             case CHANGE_TEXT_COMMENT:
-                draft.forEach( function(element) {
-                   if (element.id === payload.idComment)
-                    element.description = payload.text
-                })
-                break;    
+                draft.forEach(function (element) {
+                    if (element.id === payload.idComment) {element.description = payload.text;}
+                });
+                break;
         }
     });
 

@@ -20,7 +20,7 @@ class AddTaskMenu extends Component {
     }
 
     render () {
-        const { taskName, errorPlaceHolder } = this.state;
+        const { errorPlaceHolder } = this.state;
 
         return (
             <form onSubmit = {this.sendValue}>
@@ -34,10 +34,10 @@ class AddTaskMenu extends Component {
 
         );
     }
-    
- handleOpen = function(func) {
-    func()
-  }
+
+ handleOpen = function (func) {
+     func();
+ }
 
 
   sendValue = (e) => {
@@ -63,7 +63,6 @@ class AddTaskMenu extends Component {
   }
 
   toggleTaskName = (ev) => {
-      let value = ev.target.value;
       this.setState({
           taskName: ev.target.value
       });

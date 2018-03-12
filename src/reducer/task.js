@@ -8,7 +8,7 @@ const stateTask = {
 };
 
 export default (state = stateTask, action) => {
-    const { type, payload, randomId, date } = action;
+    const { type, payload, randomId } = action;
 
     return produce(state, draft => {
         switch (type) {
@@ -42,14 +42,14 @@ export default (state = stateTask, action) => {
                 objNew[newTaskId].comments.push(idComment);
 
                 const removeComment = objNew[taskId].comments.findIndex(id => id === idComment);
-                const oldTask = objNew[taskId].comments.splice(removeComment, 1);
+                objNew[taskId].comments.splice(removeComment, 1);
                 break;
 
             case DELETE_COMMENT:
                 const { idTask } = payload;
                 const newObj = arrayToObject(draft.task);
                 const deleteComment = newObj[idTask].comments.findIndex(id => id === payload.idComment);
-                const oldObj = newObj[idTask].comments.splice(deleteComment, 1);
+                newObj[idTask].comments.splice(deleteComment, 1);
         }
     });
 

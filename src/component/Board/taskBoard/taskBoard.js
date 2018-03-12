@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import AddTaskButton from './addTaskButton';
 import { connect } from 'react-redux';
-import { Link, Route } from 'react-router-dom';
 import { getBoards } from '../../../AC';
-import TaskList from './taskList.js';
+import TaskList from './TaskList.js';
 import './style.css';
 
 

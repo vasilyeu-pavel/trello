@@ -2,14 +2,13 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { DragSource } from 'react-dnd';
-import ReactDOM from 'react-dom';
 import { deleteComment } from '../../../AC';
 import Modal from '../../modal/modal';
 import { NavLink } from 'react-router-dom';
 import { ModalRoute } from 'react-router-modal';
 import 'react-router-modal/css/react-router-modal.css';
-import AlignCenter from 'react-feather/dist/icons/align-center'
-import Check from 'react-feather/dist/icons/check'
+import AlignCenter from 'react-feather/dist/icons/align-center';
+import Check from 'react-feather/dist/icons/check';
 
 
 export const ItemTypes = {
@@ -25,10 +24,10 @@ const commentSource = {
 };
 
 const size = {
-    "width": "20px",
-    "height": "6px",
-    "marginRight": "5px",
-}
+    width: "20px",
+    height: "6px",
+    marginRight: "5px"
+};
 
 function collect (connect, monitor) {
     return {
@@ -47,7 +46,8 @@ class Comment extends Component {
         isDragging: PropTypes.bool,
         idComment: PropTypes.string,
         idTask: PropTypes.string,
-        comments: PropTypes.array
+        comments: PropTypes.array,
+        deleteComment: PropTypes.func
     }
 
     state = {
@@ -69,29 +69,32 @@ class Comment extends Component {
                 height: '100%',
                 maxWidth: "18rem"
             }}>
-                    <div className = "card-header">
-                        {commentElement.date}
-                    </div>
+                <div className = "card-header">
+                    {commentElement.date}
+                </div>
 
-                    <NavLink to={`${match.url}/comment/${commentElement.id}`}   
+                <NavLink to={`${match.url}/comment/${commentElement.id}`}
                     style={{
-                    textDecoration: 'none',
-                    color: 'white'
-                   }}>
-                        <div className = "card-body" onClick = {this.test}>
-                            {this.getCommentImportant(commentElement)}
+                        textDecoration: 'none',
+                        color: 'white'
+                    }}>
+                    <div className = "card-body" onClick = {this.test}>
+                        {this.getCommentImportant(commentElement)}
 
-                            <p className = "card-text">{commentElement.text}</p>
-                        </div>
-                            {commentElement.description ? <span className = "description"><AlignCenter /></span> : null}
-                    </NavLink>
+                        <p className = "card-text">{commentElement.text}</p>
+                    </div>
+                    {commentElement.description ? <span className = "description"><AlignCenter /></span> : null}
+                </NavLink>
 
-                    <div className = "card-footer">
-                        <span className = "card-footer-like" 
-                            onClick = {this.handleCommentStatus}><Check color="#9ACD32"/></span>
-                        <button type="button" className="close" aria-label="Close" onClick = {this.deleteCommentary.bind(this, commentElement.id, idTask)}>
-                          <span aria-hidden="true" style = {{"color": "#FF4500"}}>&times;</span>
-                        </button>        
+                <div className = "card-footer">
+                    <span className = "card-footer-like"
+                        onClick = {this.handleCommentStatus}><Check color="#9ACD32"/></span>
+                    <button type="button"
+                        className="close"
+                        aria-label="Close"
+                        onClick = {this.deleteCommentary.bind(this, commentElement.id, idTask)}>
+                        <span aria-hidden="true" style = {{ color: "#FF4500" }}>&times;</span>
+                    </button>
 
                     <ModalRoute component = {this.getComment} path = {`${match.url}/comment/:id`}
                         parentPath={`${match.url}`}
@@ -104,38 +107,40 @@ class Comment extends Component {
     }
 
     getCommentImportant (comment) {
-        const value = +comment.important
-        if (!value) return null
+        const value = +comment.important;
+        if (!value) return null;
         if (value === 1) {
             return (
-                   <div className = "comment_important">
-                        <div className = "important-first" style = {size}></div>
-                   </div>
-                )
-        }
-        else if (value === 2)  {
-             return (
-                   <div className = "comment_important">
-                    <div className = "important-first" style = {size}></div>
-                    <div className = "important-second" style = {size}></div>
-                  </div>
-                )
-        }else {
+                <div className = "comment_important">
+                    <div className = "important-first" style = {size} />
+                </div>
+            );
+        } else if (value === 2) {
             return (
-                  <div className = "comment_important">
-                    <div className = "important-first" style = {size}></div>
-                    <div className = "important-second" style = {size}></div>
-                    <div className = "important-third" style = {size}></div>
-                  </div>
-                )
-        }   
+                <div className = "comment_important">
+                    <div className = "important-first" style = {size} />
+                    <div className = "important-second" style = {size} />
+                </div>
+            );
+        } else {
+            return (
+                <div className = "comment_important">
+                    <div className = "important-first" style = {size} />
+                    <div className = "important-second" style = {size} />
+                    <div className = "important-third" style = {size} />
+                </div>
+            );
+        }
     }
 
     getComment = ({ match }) => {
         const id = match.params.id;
+        const arr = match.url.split('/', 3);
+        const urlBoard = arr.join('/');
+
         return (
             <div>
-                <Modal id = {id} />
+                <Modal id = {id} urlBoard = {urlBoard}/>
             </div>
         );
     }

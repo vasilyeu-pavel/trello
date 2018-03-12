@@ -11,7 +11,8 @@ class TaskList extends Component {
         //from connect
         taskList: PropTypes.array,
         getBoards: PropTypes.func,
-        idBoards: PropTypes.string
+        idBoards: PropTypes.string,
+        boards: PropTypes.array
     }
 
     render () {
@@ -22,11 +23,15 @@ class TaskList extends Component {
         return (
             <div>
                 <div className = "row">
-                    { taskList[0].task.map(id => 
-                        <div className = "card text-center" style = {{"height": "100%", "marginRight": "15px"}} key = {id}>
-                        <Task match = {this.props.match} id = {id} idBoard = {taskList[0].id}/>
-                        </div>
-                        )}
+                    { taskList[0].task.map(id =>
+                        (<div className = "card text-center"
+                            style = {{ height: "100%", marginRight: "15px" }}
+                            key = {id}>
+                            <Task match = {this.props.match}
+                                id = {id}
+                                idBoard = {taskList[0].id}/>
+                        </div>)
+                    )}
                 </div>
             </div>
         );

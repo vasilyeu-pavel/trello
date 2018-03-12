@@ -10,7 +10,9 @@ class Board extends Component {
         board: PropTypes.shape({
             id: PropTypes.string.isRequired,
             title: PropTypes.string,
-            task: PropTypes.array
+            task: PropTypes.array,
+            date: PropTypes.string,
+            deleteBoard: PropTypes.func
         })
     }
 
@@ -19,13 +21,13 @@ class Board extends Component {
 
         return (
             <NavLink to = {`/board/${id}`} style = {{
-                "textDecoration": "none",
+                textDecoration: "none"
             }}>
                 <div className = "boards">
                     <h5 className = "boardsTitle">{title}</h5>
                     <button type="button" className="close" aria-label="Close" onClick = {this.handleDeleteBoard}>
-                          <span aria-hidden="true" style = {{"color": "#FF0000"}}>&times;</span>
-                    </button> 
+                        <span aria-hidden="true" style = {{ color: "#FF0000" }}>&times;</span>
+                    </button>
                     <span className = "boardsDate">{date}</span>
                 </div>
             </NavLink>

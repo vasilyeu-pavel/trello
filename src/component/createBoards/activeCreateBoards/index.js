@@ -18,7 +18,7 @@ class ActiveCreateBoards extends Component {
     }
 
     render () {
-        const { isOpen, changeBoardsState, addBoard } = this.props;
+        const { isOpen } = this.props;
         const { alertState } = this.state;
         if (!isOpen) return null;
         return (
@@ -46,7 +46,6 @@ class ActiveCreateBoards extends Component {
 
     sendValue = (ev) => {
         const { changeBoardsState, addBoard } = this.props;
-        const { alertState } = this.state;
         if (this.state.boardsName.length !== 0) {
             addBoard(this.state.boardsName); //send board name for reducer
             changeBoardsState();

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './style.css';
-import ActiveCreateBoards from './ActiveCreateBoards';
+import ActiveCreateBoards from './activeCreateBoards';
 import { connect } from 'react-redux';
 import { changeBoardsState } from '../../AC';
 

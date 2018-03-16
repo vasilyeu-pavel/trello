@@ -3,21 +3,32 @@ import PropTypes from 'prop-types';
 import './style.css';
 import { connect } from 'react-redux';
 import { deleteBoard } from '../../AC';
+import { removeBoardWS } from '../../AC/websocket';
 import { NavLink } from 'react-router-dom';
 
 class Board extends Component {
+    constructor(props) {
+        super(props)
+
+        const {dispatch, socket} = this.props
+            
+        socket.on('remove board',(res)=>{
+        console.log(res)
+        dispatch(deleteBoard(res))
+    })
+    }
+
     static propTypes = {
         board: PropTypes.shape({
             id: PropTypes.string.isRequired,
             title: PropTypes.string,
             task: PropTypes.array,
             date: PropTypes.string,
-            deleteBoard: PropTypes.func
         })
     }
 
     render () {
-        const { title, id, date } = this.props.board;
+        const { title, id, date, socket } = this.props.board;
 
         return (
             <NavLink to = {`/board/${id}`} style = {{
@@ -25,7 +36,10 @@ class Board extends Component {
             }}>
                 <div className = "boards">
                     <h5 className = "boardsTitle">{title}</h5>
-                    <button type="button" className="close" aria-label="Close" onClick = {this.handleDeleteBoard}>
+                    <button type="button" 
+                        className="close" 
+                        aria-label="Close" 
+                        onClick = {this.handleDeleteBoard}>
                         <span aria-hidden="true" style = {{ color: "#FF0000" }}>&times;</span>
                     </button>
                     <span className = "boardsDate">{date}</span>
@@ -37,9 +51,9 @@ class Board extends Component {
 
     handleDeleteBoard = (ev) => {
         ev.preventDefault();
-        const { board, deleteBoard } = this.props;
-        deleteBoard(board.id);
+        const { board, deleteBoard, socket, dispatch } = this.props;
+        dispatch(removeBoardWS(board.id, socket));
     }
 }
 
-export default connect(null, { deleteBoard })(Board);
+export default connect()(Board);

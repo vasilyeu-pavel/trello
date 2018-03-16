@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --hot --inline",
+    "start": "concurrently \"npm run dev\" \"npm run api\"",
+    "dev": "webpack-dev-server --hot --inline",
+    "api": "node server/index.js",
     "build": "webpack"
   },
   "author": "",
@@ -57,7 +59,9 @@
     "react-transition-group": "^1.2.0",
     "redux": "^3.7.0",
     "redux-thunk": "^2.2.0",
-    "reselect": "^3.0.1"
+    "reselect": "^3.0.1",
+    "socket.io": "^2.0.4",
+    "socket.io-client": "^2.0.4"
   },
   "repository": {
     "type": "git",

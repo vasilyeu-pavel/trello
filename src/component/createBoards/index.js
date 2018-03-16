@@ -13,7 +13,7 @@ class CreateBoards extends Component {
     };
 
     render () {
-    	const { isOpen, changeBoardsState } = this.props;
+    	const { isOpen, changeBoardsState, socket } = this.props;
         return (
             <div className = "boards">
                 <div className = "boardsTitle" onClick = {changeBoardsState}>
@@ -21,7 +21,7 @@ class CreateBoards extends Component {
                         <h5>Создать новую доску:</h5>}
                 </div>
                 <div className = "boardsBody">
-                    <ActiveCreateBoards />
+                    <ActiveCreateBoards socket = {socket}/>
                 </div>
             </div>
         );

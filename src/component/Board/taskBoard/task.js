@@ -46,7 +46,8 @@ class Task extends Component {
     }
 
     render () {
-        const { tasks, id, connectDropTarget } = this.props;
+        const { tasks, id, connectDropTarget,socket } = this.props;
+
         const { commentText } = this.state;
 
         const taskSelected = tasks.filter(task => task.id === id);

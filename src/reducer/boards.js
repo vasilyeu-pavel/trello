@@ -1,4 +1,4 @@
-import { CHANGE_STATE_BOARDS, GET_BOARDS, DELETE_BOARD, ADD_BOARD,
+import { CHANGE_STATE_BOARDS, DELETE_BOARD, ADD_BOARD,
     ADD_TASK_TITLE, SET_SELECT_BOARD
 } from "../constants";
 
@@ -12,7 +12,6 @@ const stateBoards = {
 
 export default (state = stateBoards, action) => {
     const { type, payload, randomId, date } = action;
-
     return produce(state, draft => {
     	switch (type) {
     		case CHANGE_STATE_BOARDS:
@@ -20,12 +19,6 @@ export default (state = stateBoards, action) => {
     		 	isOpen: !draft.isOpen,
     		 	boards: state.boards
     		 };
-
-    		case GET_BOARDS:
-    			return {
-    				boards: draft.boards,
-    				isOpen: draft.isOpen
-    		  };
 
     		case DELETE_BOARD:
     			return {
@@ -40,8 +33,6 @@ export default (state = stateBoards, action) => {
 			  		date: date,
 			  		task: []
 			  	});
-            case SET_SELECT_BOARD:
-
 
             case ADD_TASK_TITLE:
                 draft.boards.forEach(function (element) {

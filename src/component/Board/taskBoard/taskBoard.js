@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import AddTaskButton from './addTaskButton';
 import { connect } from 'react-redux';
-import { getBoards } from '../../../AC';
 import TaskList from './TaskList.js';
 import './style.css';
 
@@ -14,7 +13,7 @@ class taskBoard extends Component {
     }
 
     render () {
-        const { id, boards } = this.props;
+        const { id, boards, socket } = this.props;
 
         if (!boards.length) return null;
 
@@ -27,12 +26,12 @@ class taskBoard extends Component {
                     <div className="card-header">
                         {taskBoardElement[0].title}
                     </div>
-                    <AddTaskButton idBoards = {id}/>
+                    <AddTaskButton socket = {socket} idBoards = {id}/>
 
                 </div>
                 <div>
                     <div className="container">
-                        <div><TaskList idBoards = {id} match = {this.props.match}/></div>
+                        <div><TaskList idBoards = {id} socket = {socket} match = {this.props.match}/></div>
                     </div>
                 </div>
 
@@ -43,4 +42,4 @@ class taskBoard extends Component {
 
 export default connect((state => ({
     boards: state.boards.boards
-})), { getBoards })(taskBoard);
+})))(taskBoard);

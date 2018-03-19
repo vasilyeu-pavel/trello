@@ -18,12 +18,3 @@ export function addBoardWS (name, socket) {
      }     
 }
 
-export function addCommentWS (commentText, socket) {
-        return (dispatch) => {
-        let postData = {
-            payload: { commentText },
-        }
-
-        socket.emit('add comment', postData)
-     }   
-}

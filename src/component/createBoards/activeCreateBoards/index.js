@@ -14,7 +14,7 @@ constructor(props) {
 
     socket.on('add board',(res)=>{
         console.log(res)
-        dispatch(addBoard(res.payload.name))
+        dispatch(addBoard(res))
     })
 
     this.state = {

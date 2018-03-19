@@ -29,7 +29,7 @@ export default (state = stateBoards, action) => {
     		case ADD_BOARD:
 			  	 draft.boards.push({
 			  		id: randomId,
-			  		title: payload,
+			  		title: payload.name,
 			  		date: date,
 			  		task: []
 			  	});

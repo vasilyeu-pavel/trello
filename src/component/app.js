@@ -43,9 +43,8 @@ class App extends Component {
 
     getTask = ({ match }) => {
         const id = match.params.id;
-    if(socket) socket.disconnect()
-
-    socket = io.connect("http://localhost:3000")
+        socket.disconnect()
+        console.log('disconnection')
 
         return (
             <div >

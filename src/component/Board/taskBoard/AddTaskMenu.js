@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { changeTaskMenuState, addTaskTitle } from '../../../AC';
-//import { addTaskWS } from '../../../AC/websocket';
 import { connect } from 'react-redux';
 
 class AddTaskMenu extends Component {

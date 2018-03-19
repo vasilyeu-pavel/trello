@@ -13,6 +13,7 @@ class Board extends Component {
         const {dispatch, socket} = this.props
             
         socket.on('remove board',(res)=>{
+        console.log(res)
         dispatch(deleteBoard(res))
     })
     }

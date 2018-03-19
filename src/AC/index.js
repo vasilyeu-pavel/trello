@@ -32,7 +32,7 @@ export function deleteBoard (data) {
 export function addBoard (data) {
     return {
         type: ADD_BOARD,
-        payload: data,
+        payload: data.payload,
         generateId: true
     }
 }

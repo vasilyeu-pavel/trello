@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import CreateBoards from '../createBoards/index';
 import './style.css';
 import { connect } from 'react-redux';
-import { getBoards } from '../../AC';
 import Board from './Board';
 
 class BoardsList extends Component {
@@ -14,7 +13,7 @@ class BoardsList extends Component {
     };
 
     render () {
-        const { boards, select } = this.props;
+        const { boards, select, socket } = this.props;
         if (!boards) return null;
 
         const boardElement = boards
@@ -28,13 +27,14 @@ class BoardsList extends Component {
                     <Board
                         board = {board}
                         id = {board.id}
+                        socket = {socket}
                     />
                 </div>));
         return (
 
             <div className="row">
                 {boardElement}
-                <div className="col-md-3"><CreateBoards /></div>
+                <div className="col-md-3"><CreateBoards socket = {socket}/></div>
             </div>
 
         );
@@ -44,4 +44,4 @@ class BoardsList extends Component {
 export default connect(state => ({
     boards: state.boards.boards,
     select: state.select
-}), { getBoards })(BoardsList);
+}))(BoardsList);

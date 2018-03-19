@@ -3,13 +3,14 @@ import PropTypes from 'prop-types';
 import Comment from './comment';
 import { connect } from 'react-redux';
 import { sendComment, handleDrop } from '../../../AC';
+import { addCommentWS } from '../../../AC/websocket'
 import './style.css';
 import { DropTarget } from 'react-dnd';
 
 const dropSource = {
     drop (props, monitor) {
         const comment = monitor.getItem();
-        props.handleDrop(comment.idComment, comment.idTask, props.id);
+        props.dispatch(handleDrop(comment.idComment, comment.idTask, props.id));
     }
 
 };
@@ -45,9 +46,17 @@ class Task extends Component {
         commentText: ''
     }
 
+    componentDidMount() {
+      this.props.socket.on('add comment', (data) => {
+        console.log(data)
+        return this.setState({
+          commentText: data.payload.commentText
+        })
+      })
+    }
+
     render () {
-        const { tasks, id, connectDropTarget } = this.props;
-        const { commentText } = this.state;
+        const { tasks, id, connectDropTarget,socket } = this.props;
 
         const taskSelected = tasks.filter(task => task.id === id);
 
@@ -61,7 +70,6 @@ class Task extends Component {
                         <input
                             className = "form-control"
                             type="text"
-                            value = {commentText}
                             onInput = {this.toggleCommentName}
                             placeholder = "введите комментарий"
                         />
@@ -69,7 +77,12 @@ class Task extends Component {
                     <div>
                         {taskSelected[0].comments.map(id =>
                             (<div key = {id}>
-                                <Comment idComment = {id} idTask = {taskSelected[0].id} match = {this.props.match}/>
+                                <Comment 
+                                idComment = {id} 
+                                idTask = {taskSelected[0].id} 
+                                match = {this.props.match}
+                                socket = {socket}
+                                />
                             </div>)
                         )}
 
@@ -81,7 +94,7 @@ class Task extends Component {
 
   sendCommentText = (ev) => {
       ev.preventDefault();
-      const { sendComment, tasks, id } = this.props;
+      const { tasks, id } = this.props;
       const { commentText } = this.state;
 
       if (!commentText || !commentText.length) return null;
@@ -89,7 +102,8 @@ class Task extends Component {
       const taskSelected = tasks.filter(task => task.id === id);
       const idTask = taskSelected[0].id;
 
-      sendComment(commentText, idTask);
+      this.props.dispatch(addCommentWS(commentText, this.props.socket));
+      this.props.dispatch(sendComment(this.state.commentText, idTask))
 
       this.setState({
           commentText: ''
@@ -106,4 +120,4 @@ class Task extends Component {
 
 export default connect(state => ({
     tasks: state.task.task
-}), { sendComment, handleDrop })(Task);
+}))(Task);

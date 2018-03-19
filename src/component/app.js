@@ -6,9 +6,14 @@ import { Route, Switch } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import './style.css';
 import { ModalContainer } from 'react-router-modal';
+import { connect } from 'react-redux';
+import { addBoard, deleteBoard } from '../AC';
 
+import io from "socket.io-client"
+let socket
 
 class App extends Component {
+
     render () {
         return (
             <div>
@@ -25,18 +30,26 @@ class App extends Component {
     }
 
     getBoards = () => {
+    if(socket) socket.disconnect()
+
+    socket = io.connect("http://localhost:3000")
+    console.log('connection')
         return (
             <div>
-                <BoardsList />
+                <BoardsList socket = {socket}/>
             </div>
         );
     }
 
     getTask = ({ match }) => {
         const id = match.params.id;
+    if(socket) socket.disconnect()
+
+    socket = io.connect("http://localhost:3000")
+
         return (
             <div >
-                <TaskBoard id = {id} match = {match}/>
+                <TaskBoard id = {id} match = {match} socket = {socket}/>
             </div>
         );
     }

@@ -3,22 +3,29 @@ import PropTypes from 'prop-types';
 import './style.css';
 import { connect } from 'react-redux';
 import { changeBoardsState, addBoard } from '../../../AC';
+import { addBoardWS } from '../../../AC/websocket';
+
 
 class ActiveCreateBoards extends Component {
-    static propTypes = {
-        //from connect
-        isOpen: PropTypes.bool,
-        changeBoardsState: PropTypes.func,
-        addBoard: PropTypes.func
-    };
+constructor(props) {
+    super(props)
 
-    state = {
+    const {dispatch, socket} = this.props
+
+    socket.on('add board',(res)=>{
+        console.log(res)
+        dispatch(addBoard(res.payload.name))
+    })
+
+    this.state = {
         boardsName: '',
         alertState: false
     }
 
+}  
+
     render () {
-        const { isOpen } = this.props;
+        const { isOpen,socket } = this.props;
         const { alertState } = this.state;
         if (!isOpen) return null;
         return (
@@ -35,7 +42,7 @@ class ActiveCreateBoards extends Component {
                     <input
                         type = "submit"
                         value = "создать"
-                        onClick = {this.sendValue}
+                        onClick = {this.sendValue.bind(this, socket)}
                         className = "btn btn-dark"
                     />
                 </from>
@@ -45,10 +52,10 @@ class ActiveCreateBoards extends Component {
     }
 
     sendValue = (ev) => {
-        const { changeBoardsState, addBoard } = this.props;
+        const { dispatch, socket } = this.props;
         if (this.state.boardsName.length !== 0) {
-            addBoard(this.state.boardsName); //send board name for reducer
-            changeBoardsState();
+            dispatch(addBoardWS(this.state.boardsName, socket)); //send board name for ws
+            dispatch(changeBoardsState());
             //close activeCreateBoards menu
         } else {
             this.setState({
@@ -68,6 +75,7 @@ class ActiveCreateBoards extends Component {
     }
 }
 
+
 export default connect((state) => ({
     isOpen: state.boards.isOpen
-}), { changeBoardsState, addBoard })(ActiveCreateBoards);
+}))(ActiveCreateBoards);

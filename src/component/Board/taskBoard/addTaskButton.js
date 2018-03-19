@@ -15,7 +15,7 @@ class addTaskButton extends Component {
 	}
 
 	render () {
-	    const { isOpen, changeTaskMenuState, idBoards } = this.props;
+	    const { isOpen, changeTaskMenuState, idBoards, socket } = this.props;
 
 	    return (
 	        <div style = {{
@@ -25,7 +25,7 @@ class addTaskButton extends Component {
 	        }}>
 	            <button type="button" className="btn btn-secondary"
 	                onClick = {changeTaskMenuState}><b>+</b></button>
-	            {isOpen ? <AddTaskMenu idBoards = {idBoards}/> : null}
+	            {isOpen ? <AddTaskMenu idBoards = {idBoards} socket = {socket}/> : null}
 	        </div>
 	    );
 	}

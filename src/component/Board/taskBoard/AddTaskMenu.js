@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { changeTaskMenuState, addTaskTitle } from '../../../AC';
+//import { addTaskWS } from '../../../AC/websocket';
 import { connect } from 'react-redux';
 
 class AddTaskMenu extends Component {
+  state = {
+        taskName: '',
+        errorPlaceHolder: 'Создать новый список'
+  
+  }
     static propTypes = {
         //from connect
         isOpen: PropTypes.bool,
@@ -14,20 +20,16 @@ class AddTaskMenu extends Component {
         idBoards: PropTypes.string
     }
 
-    state = {
-        taskName: '',
-        errorPlaceHolder: 'Создать новый список'
-    }
-
     render () {
         const { errorPlaceHolder } = this.state;
+        const { socket, changeTaskMenuState } = this.props
 
         return (
             <form onSubmit = {this.sendValue}>
                 <input className="form-control"
                     type="text"
                     onInput = {this.toggleTaskName}
-                    onBlur = {this.handleOpen.bind(this, this.props.changeTaskMenuState)}
+                    onBlur = {this.handleOpen.bind(this, changeTaskMenuState)}
                     id = "formGroupExampleInput"
                     placeholder={errorPlaceHolder}/>
             </form>
@@ -42,7 +44,7 @@ class AddTaskMenu extends Component {
 
   sendValue = (e) => {
       e.preventDefault();
-      const { addTaskTitle, idBoards, changeTaskMenuState } = this.props;
+      const { idBoards, dispatch } = this.props;
       const { taskName } = this.state;
 
       if (!taskName || !taskName.length) {
@@ -52,10 +54,10 @@ class AddTaskMenu extends Component {
           return null;
       }
 
-      let val = this.state.taskName;
+      let name = this.state.taskName;
 
-      addTaskTitle(val, idBoards); //send value for reducer
-      changeTaskMenuState();
+      dispatch(addTaskTitle(name, idBoards)); //send value for reducer
+      dispatch(changeTaskMenuState());
 
       this.setState({
           errorPlaceHolder: 'Создать новый список'
@@ -71,4 +73,4 @@ class AddTaskMenu extends Component {
 
 export default connect((state) => ({
     isOpen: state.task.isOpen
-}), { addTaskTitle, changeTaskMenuState })(AddTaskMenu);
+}))(AddTaskMenu);

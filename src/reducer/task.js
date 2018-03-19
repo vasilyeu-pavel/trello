@@ -50,6 +50,7 @@ export default (state = stateTask, action) => {
                 const newObj = arrayToObject(draft.task);
                 const deleteComment = newObj[idTask].comments.findIndex(id => id === payload.idComment);
                 newObj[idTask].comments.splice(deleteComment, 1);
+                break;
         }
     });
 

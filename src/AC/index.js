@@ -1,6 +1,6 @@
 import { CHANGE_STATE_BOARDS, GET_BOARDS, DELETE_BOARD, ADD_BOARD,
-    CHANGE_STATE_TASK_MENU, ADD_TASK_TITLE, GET_TASK_LIST, SET_SELECT_BOARD, ADD_COMMENT,
-	 HANDLE_DROP, DELETE_COMMENT, CHANGE_IMPORTANT_VALUE, CHANGE_TEXT_COMMENT
+    CHANGE_STATE_TASK_MENU, ADD_TASK_TITLE, SET_SELECT_BOARD, ADD_COMMENT,
+	 HANDLE_DROP, DELETE_COMMENT, CHANGE_IMPORTANT_VALUE, CHANGE_TEXT_COMMENT, TEST_WEBSOCKET
 } from "../constants";
 
 export function changeBoardsState () {
@@ -22,19 +22,19 @@ export function getBoards () {
     };
 }
 
-export function deleteBoard (id) {
+export function deleteBoard (data) {
     return {
         type: DELETE_BOARD,
-        payload: { id }
+        payload: data.payload 
     };
 }
 
-export function addBoard (name) {
+export function addBoard (data) {
     return {
         type: ADD_BOARD,
-        payload: { name },
+        payload: data,
         generateId: true
-    };
+    }
 }
 
 export function addTaskTitle (name, idBoards) {
@@ -96,4 +96,3 @@ export function sendChangeTextComment (text, idComment) {
         payload: { text, idComment }
     };
 }
-
